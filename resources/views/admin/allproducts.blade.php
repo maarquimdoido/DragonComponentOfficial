@@ -24,16 +24,22 @@ All Products - Dragon Component
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                      @foreach ($products as $product)
                       <tr>
-                        <td>1</td>
-                        <td>Fan</td>
-                        <td>Eletronics</td>
-                        <td>100</td>
+                        <td>{{$product->id}}</td>
+                        <td>{{$product->product_name}}</td>
                         <td>
-                            <a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-warning">Delete</a>
+                          <img  style="height: 100px;"src="{{asset($product->product_img)}}" alt="">
+                          <br>
+                            <a href="{{route('editproductimg', $product->id)}}" class="btn btn-primary">Update Image</a>
+                        </td>
+                        <td>{{$product->price}}</td>
+                        <td>
+                            <a href="{{route('editproduct', $product->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{route('deleteproduct', $product->id)}}" class="btn btn-warning">Delete</a>
                         </td>
                       </tr>
+                      @endforeach
                       <tr>
                           <div class="dropdown">
                             <div class="dropdown-menu">
