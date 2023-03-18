@@ -16,7 +16,7 @@
     />
 
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>@yield('page_title')</title>
 
     <meta name="description" content="" />
 
@@ -32,7 +32,7 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="    {{asset('dashboard/assets/')}}vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="    {{asset('dashboard/assets/vendor/fonts/boxicons.css')}}" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="    {{asset('dashboard/assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
@@ -77,7 +77,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('admindashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -90,14 +90,14 @@
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('addcategory')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Add Category</div>
               </a>
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('allcategory')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">All Category</div>
               </a>
@@ -108,14 +108,14 @@
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('addsubcategory')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Add Sub Category</div>
               </a>
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('allsubcategory')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">All Sub Category</div>
               </a>
@@ -126,14 +126,14 @@
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('addproduct')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Add Product</div>
               </a>
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('allproducts')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">All Products</div>
               </a>
@@ -144,27 +144,12 @@
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="{{route('pendingorder')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Pending Orders</div>
               </a>
             </li>
-
-            <li class="menu-item ">
-              <a href="index.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Completed Orders</div>
-              </a>
-            </li>
-
-            <li class="menu-item ">
-              <a href="index.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Canceled Orders</div>
-              </a>
-            </li>
-
-           
+          </ul>
         </aside>
         <!-- / Menu -->
 
