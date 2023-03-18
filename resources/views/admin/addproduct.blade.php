@@ -16,35 +16,35 @@ Add Product - Dragon Component
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Name</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Name" />
+                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Name" />
                             </div>
                         </div>
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Price</label>
                           <div class="col-sm-10">
-                            <input type="number" class="form-control" id="category_name" name="category_name" placeholder="Price" />
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Price" />
                             </div>
                         </div>
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Quantity</label>
                           <div class="col-sm-10">
-                            <input type="number" class="form-control" id="category_name" name="category_name" placeholder="Number" />
+                            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Number" />
                             </div>
                         </div>
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Short Description</label>
                           <div class="col-sm-10">
-                                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="product_short_des" id="product_short_des" cols="30" rows="10"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Long Description</label>
                           <div class="col-sm-10">
-                                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="product_long_des" id="product_long_des" cols="30" rows="10"></textarea>
                             </div>
                         </div>
 
