@@ -7,6 +7,11 @@ All Category - Dragon Component
               <h4 class="fw-bold py-3 mb-4"> All Categories</h4>
 <div class="card">
                 <h5 class="card-header">Availabe Categories Information</h5>
+                @if (session()->has('message'))
+                <div class="alert alert-success">
+                  {{ session()->get('message') }}
+                </div>
+                @endif
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead class="table-light">
