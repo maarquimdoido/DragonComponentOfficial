@@ -19,21 +19,25 @@ All Category - Dragon Component
                         <th>ID</th>
                         <th>Category Name</th>
                         <th>Sub Category</th>
-                        <th>Product</th>
+                        <th>Slug</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                      @foreach ($categories as $category)
+                      
                       <tr>
-                        <td>1</td>
-                        <td>Eletronics</td>
-                        <td>10</td>
-                        <td>100</td>
+                        <td>{{$category->id}}</td>
+                        <td>{{$category->category_name}}</td>
+                        <td>{{$category->subcategory_count}}</td>
+                        <td>{{$category->slug}}</td>
                         <td>
-                            <a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-warning">Delete</a>
+                            <a href="{{ route('editcategory', $category->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('deletecategory', $category->id) }}" class="btn btn-warning">Delete</a>
                         </td>
                       </tr>
+                      @endforeach
+                    </tbody>
                       <tr>
                           <div class="dropdown">
                             <div class="dropdown-menu">

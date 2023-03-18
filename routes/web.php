@@ -42,6 +42,9 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/admin/all-category', 'Index')->name('allcategory');
         Route::get('/admin/add-category', 'AddCategory')->name('addcategory');
         Route::post('/admin/store-category', 'StoreCategory')->name('storecategory');
+        Route::get('/admin/edit-category{id}', 'EditCategory')->name('editcategory');
+        Route::post('/admin/update-category', 'UpdateCategory')->name('updatecategory');
+        Route::get('/admin/delete-category{id}', 'DeleteCategory')->name('deletecategory');
     });
 
     Route::controller(SubCategoryController::class)->group(function(){
@@ -60,8 +63,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         
         
 });
-
-
 
 
 require __DIR__.'/auth.php';
