@@ -5,7 +5,12 @@ All Products - Dragon Component
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"> All Produtcs</h4>
-<div class="card">
+              @if (session()->has('message'))
+                <div class="alert alert-success">
+                  {{ session()->get('message') }}
+                </div>
+                @endif
+            <div class="card">
                 <h5 class="card-header">Availabe Products Information</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
