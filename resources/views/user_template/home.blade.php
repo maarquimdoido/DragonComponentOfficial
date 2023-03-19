@@ -17,7 +17,7 @@
                                  <div class="tshirt_img"><img src="{{ asset($product->product_img) }}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="{{route('singleproduct', [$product->id, $product->slug])}}">See More</a></div>
                                  </div>
                               </div>
                            </div>
@@ -25,6 +25,8 @@
                         </div>
                      </div>
                   </div>
+               </div>
+             </div>
                <div class="carousel-item">
                   <div class="container">
                      <h1 class="fashion_taital">Man & Woman Fashion</h1>
