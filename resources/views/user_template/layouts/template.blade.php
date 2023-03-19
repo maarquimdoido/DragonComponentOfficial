@@ -51,7 +51,7 @@
                      <div class="custom_menu">
                         <ul>
                            <li><a href="#">Best Sellers</a></li>
-                           <li><a href="{{ route('category')}}">Gift Ideas</a></li>
+                           <li><a href="">Gift Ideas</a></li>
                            <li><a href="{{ route('newrelease')}}">New Releases</a></li>
                            <li><a href="{{ route('todaysdeal')}}">Today's Deals</a></li>
                            <li><a href="{{ route('customerservice')}}">Customer Service</a></li>
@@ -81,7 +81,7 @@
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <a href="index.html">Home</a>
                      @foreach ($categories as $category)
-                     <a href="fashion.html">{{$category->category_name}}</a>
+                     <a href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name  }}</a>
                      @endforeach
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="{{ asset('home/images/toggle-icon.png') }}"></span>
@@ -90,7 +90,7 @@
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                      @foreach ($categories as $category)
-                     <a class="dropdown-item">{{$category->category_name}}</a>
+                     <a  href="{{ route('category', [$category->id, $category->slug]) }}"class="dropdown-item">{{$category->category_name}}</a>
                      @endforeach
                      </div>
                   </div>
@@ -166,9 +166,6 @@
             <div class="location_main">Help Line  Number : <a href="#">+1 1800 1200 1200</a></div>
          </div>
       </div>
-      
-
-      
       <!-- footer section end -->
       <!-- copyright section start -->
       <div class="copyright_section">
