@@ -123,7 +123,7 @@
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>
-                           <li><a href="#">
+                           <li><a href="profile">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Profile</span></a>
                            </li>

@@ -29,6 +29,11 @@ class ClientController extends Controller
         return view('user_template.addtocart');
     }
 
+    public function AddProductToCart()
+    {
+        
+    }
+
     public function Checkout()
     {
         return view('user_template.checkout');
@@ -37,6 +42,16 @@ class ClientController extends Controller
     public function UserProfile()
     {
         return view('user_template.userprofile');
+    }
+
+    public function PendingOrders()
+    {
+        return view('user_template.pendingorders');
+    }
+
+    public function History()
+    {
+        return view('user_template.History');
     }
 
     public function NewRelease()
