@@ -33,7 +33,7 @@ All Products - Dragon Component
                           <br>
                             <a href="{{route('editproductimg', $product->id)}}" class="btn btn-primary">Update Image</a>
                         </td>
-                        <td>{{$product->price}}</td>
+                        <td>{{$product->price}}  €</td>
                         <td>
                             <a href="{{route('editproduct', $product->id)}}" class="btn btn-primary">Edit</a>
                             <a href="{{route('deleteproduct', $product->id)}}" class="btn btn-warning">Delete</a>
