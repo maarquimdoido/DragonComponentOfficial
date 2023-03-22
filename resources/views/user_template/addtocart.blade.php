@@ -27,7 +27,7 @@
                             <td><img src="{{ asset($img) }}" style="height: 50px"></td>
                             <td>{{$product_name}}</td>
                             <td>{{$item->quantity}}</td>
-                            <td>{{$item->price}}</td>
+                            <td>{{$item->price}}€</td>
                             <td><a href="" class="btn btn-warning">Remove</a></td>
                         </tr>
                     @endforeach
