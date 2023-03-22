@@ -37,6 +37,10 @@ class ClientController extends Controller
     {
         $product_price = $request->price;
         $quantity = $request->quantity;
+        if($quantity == null)
+        {
+            $quantity = 1;
+        }
         $price = $quantity * $product_price  ;
         $products = $request->product_id;
         Cart::insert([
@@ -45,6 +49,9 @@ class ClientController extends Controller
                 'price' => $price,
                 'quantity' => $quantity,
                 
+
+
+
         ]);
 
         return  redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
