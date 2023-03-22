@@ -20,8 +20,12 @@
                     </tr>
                     @foreach($cart_item as $item)
                         <tr>
-                            <td>{{$item->product_img}}</td>
-                            <td>{{$item->product_id}}</td>
+                            @php
+                                $product_name = App\Models\Product::where('id', $item->product_id)->value('product_name');
+                                $img = App\Models\Product::where('id', $item->product_id)->value('product_img');
+                            @endphp
+                            <td><img src="{{ asset($img) }}" style="height: 50px"></td>
+                            <td>{{$product_name}}</td>
                             <td>{{$item->quantity}}</td>
                             <td>{{$item->price}}</td>
                             <td><a href="" class="btn btn-warning">Remove</a></td>

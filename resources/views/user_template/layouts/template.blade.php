@@ -1,7 +1,7 @@
-
 @php
    $categories = App\Models\Category::latest()->get();
 @endphp
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
