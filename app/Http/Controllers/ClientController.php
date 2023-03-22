@@ -28,19 +28,23 @@ class ClientController extends Controller
 
     public function AddToCart()
     {
-        return view('user_template.addtocart');
+        $userid = Auth::id();
+        $cart_item = Cart::where('user_id', $userid)->get();
+        return view('user_template.addtocart', compact('cart_item'));
     }
 
     public function AddProductToCart(Request $request)
     {
         $product_price = $request->price;
         $quantity = $request->quantity;
-        $price = $product_price * $quantity;
-        Cart::inser([
-                'product_id' => $request->product_id,
+        $price = $quantity * $product_price  ;
+        $products = $request->product_id;
+        Cart::insert([
+                'product_id' => $products,
                 'user_id' =>Auth::id(),
-                'quantity' => $request->quantity,
-                'price' => $price
+                'price' => $price,
+                'quantity' => $quantity,
+                
         ]);
 
         return  redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
