@@ -37,13 +37,15 @@
                             $total = $total + $item->price;
                         @endphp
                 @endforeach
+                @if($total > 0)
                     <tr>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td class="fw-bold">Total</td>
                         <td class="text-center">{{$total}}€</td>
+                            <td><a href="{{route('shippingaddress')}}" class="btn btn-primary ">Checkout Now</a></td>
                     </tr>
+                    @endif
                 </table>
             </div>
         </div>

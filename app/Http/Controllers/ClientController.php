@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Shippinginfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,10 +49,6 @@ class ClientController extends Controller
                 'user_id' =>Auth::id(),
                 'price' => $price,
                 'quantity' => $quantity,
-
-
-
-
         ]);
 
         return  redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
@@ -61,6 +58,24 @@ class ClientController extends Controller
     {
         Cart::findOrFail($id)->delete();
         return redirect()->route('addtocart')->with('message', 'Your item was removed successfully');
+    }
+
+    public function GetShippingAddress()
+    {
+        return view('user_template.shippingaddress');
+    }
+
+    public function AddShippingAddress(Request $request)
+    {
+        ShippingInfo::insert([
+            'user_id' =>Auth::id(),
+            'phone_number' => $request->phone_number,
+            'city_name' => $request->city_name,
+            'postal_code' => $request->postal_code,
+            'street_info' => $request->street_info,
+        ]);
+
+        return redirect()->route('checkout');
     }
 
 
