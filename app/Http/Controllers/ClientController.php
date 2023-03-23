@@ -48,7 +48,7 @@ class ClientController extends Controller
                 'user_id' =>Auth::id(),
                 'price' => $price,
                 'quantity' => $quantity,
-                
+
 
 
 
@@ -56,6 +56,13 @@ class ClientController extends Controller
 
         return  redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
     }
+
+    public function RemoveCartItem($id)
+    {
+        Cart::findOrFail($id)->delete();
+        return redirect()->route('addtocart')->with('message', 'Your item was removed successfully');
+    }
+
 
     public function Checkout()
     {

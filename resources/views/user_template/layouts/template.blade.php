@@ -86,7 +86,7 @@
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="{{ asset('home/images/toggle-icon.png') }}"></span>
                   <div class="dropdown">
-                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                      @foreach ($categories as $category)
@@ -119,11 +119,11 @@
                      </div>
                      <div class="login_menu">
                         <ul>
-                           <li><a href="#">
+                           <li><a href="/add-to-cart">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>
-                           <li><a href="profile">
+                           <li><a href="/user-profile">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Profile</span></a>
                            </li>
@@ -134,7 +134,7 @@
             </div>
          </div>
          <!-- header section end -->
-      
+
       </div>
       <!-- banner bg main end -->
 
@@ -143,7 +143,7 @@
          <div class="container py-5 " style="margin-top: 200px;">
          @yield('main-content')
          </div>
-   
+
          <!-- End Commom Part -->
 
       <!-- footer section start -->
@@ -187,7 +187,7 @@
          function openNav() {
            document.getElementById("mySidenav").style.width = "250px";
          }
-         
+
          function closeNav() {
            document.getElementById("mySidenav").style.width = "0";
          }

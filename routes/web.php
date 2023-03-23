@@ -41,6 +41,7 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
         Route::get('/user-profile/history', 'History')->name('History');
         Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
+        Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');
     });
 });
 
@@ -59,7 +60,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(DashboardController::class)->group(function(){
         Route::get('/admin/dashboard', 'Index')->name('admindashboard');
     });
-    
+
     Route::controller(CategoryController::class)->group(function(){
         Route::get('/admin/all-category', 'Index')->name('allcategory');
         Route::get('/admin/add-category', 'AddCategory')->name('addcategory');
@@ -92,8 +93,8 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
     });
-        
-        
+
+
 });
 
 

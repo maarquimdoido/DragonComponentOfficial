@@ -25,7 +25,7 @@ All Category - Dragon Component
                     </thead>
                     <tbody class="table-border-bottom-0">
                       @foreach ($categories as $category)
-                      
+
                       <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->category_name}}</td>
