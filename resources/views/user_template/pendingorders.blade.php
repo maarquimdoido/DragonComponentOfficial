@@ -11,6 +11,7 @@ Pending Orders
         <tr>
             <th>Product ID</th>
             <th>Price</th>
+            <th>Status</th>
         </tr>
         @foreach($pending_orders as $order )
         <tr>
@@ -19,6 +20,9 @@ Pending Orders
             </td>
             <td>
             {{ $order->total_price }}
+            </td>
+            <td>
+            {{ $order->status }}
             </td>
         </tr>
         @endforeach
