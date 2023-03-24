@@ -29,12 +29,13 @@ Pending Orders - Dragon Component
                                     <li>Street Info - {{$order->shipping_streetinfo}}</li>
                                 </ul>
                             </td>
-                            <form action="" method="POST">
+                            <form action="{{route('completedorder')}}" method="GET">
                                 <td class="text-center">{{$order->product_id}}</td>
                                 <td class="text-center">{{$order->quantity}}</td>
                                 <td class="text-center">{{$order->total_price}} €</td>
-                                <td><a href="" class="btn btn-success ">Confirm Order</a>
-                                    <a href="" class="btn btn-danger">Cancel Order</a>
+                                <td>
+                                    <input class="btn btn-success" type="submit" value="Confirm Order">
+                                    <input class="btn btn-danger" type="submit" value="Cancel Order">
                                 </td>
                             </form>
                         </tr>

@@ -48,23 +48,6 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
     });
 });
 
-Route::middleware(['auth', 'role:admin'  ])->group(function(){
-    Route::controller(ClientController::class)->group(function(){
-        Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
-        Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
-        Route::get('/shipping-address', 'GetShippingAddress')->name('shippingaddress');
-        Route::post('/add-shipping-address', 'AddShippingAddress')->name('addshippingaddress');
-        Route::post('/place-order', 'PlaceOrder')->name('placeorder');
-        Route::get('/checkout', 'Checkout')->name('checkout');
-        Route::get('/user-profile', 'UserProfile')->name('userprofile');
-        Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
-        Route::get('/user-profile/history', 'History')->name('History');
-        Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
-        Route::get('/custom-service', 'CustomerService')->name('customerservice');
-        Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');
-    });
-});
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -104,7 +87,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/admin/add-product', 'AddProduct')->name('addproduct');
         Route::post('/admin/store-product', 'StoreProduct')->name('storeproduct');
         Route::get('/admin/edit-product-img/{id}', 'EditProductImg')->name('editproductimg');
-        Route::post('admin/update-product-img', 'UpdateProductImg')->name('updateproductimg');
+        Route::post('/admin/update-product-img', 'UpdateProductImg')->name('updateproductimg');
         Route::get('/admin/edit-product/{id}', 'EditProduct')->name('editproduct');
         Route::post('/admin/update-product', 'UpdateProduct')->name('updateproduct');
         Route::get('/admin/delete-product/{id}', 'DeleteProduct')->name('deleteproduct');
@@ -112,7 +95,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
-        Route::get('/Completed-Order', 'CompletedOrder')->name('completedorder');
+        Route::get('/admin/completed-order', 'CompletedOrder')->name('completedorder');
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
     });
 

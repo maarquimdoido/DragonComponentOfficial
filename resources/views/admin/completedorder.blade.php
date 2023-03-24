@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('page_title')
-    Dashboard - Dragon Component
+    Completed Orders - Dragon Component
 @endsection
 @section('content')
     <div class="container my-5">
@@ -34,6 +34,7 @@
                             <td class="text-center">{{$order->total_price}}</td>
                             <td class="text-center"><label>
                                     <input class="btn btn-success disabled" value="{{$order->status}}">
+                                    <input class="btn btn-danger" value="Cancel">
                                 </label></td>
                         </tr>
                     @endforeach
