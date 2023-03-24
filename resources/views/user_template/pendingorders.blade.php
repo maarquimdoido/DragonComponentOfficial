@@ -1,6 +1,6 @@
 @extends('user_template.layouts.user_profile_template')
 @section('profilecontent')
-Pending Orders
+<h2>Pending Orders</h2>
 @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
@@ -19,7 +19,7 @@ Pending Orders
                 {{ $order->product_id }}
             </td>
             <td>
-            {{ $order->total_price }}
+            {{ $order->total_price }}€
             </td>
             <td>
             {{ $order->status }}
