@@ -32,7 +32,9 @@
                             <td class="text-center">{{$order->product_id}}</td>
                             <td class="text-center">{{$order->quantity}}</td>
                             <td class="text-center">{{$order->total_price}}</td>
-                            <td class="text-center"><input class="btn btn-success disabled" value="{{$order->status}}"></td>
+                            <td class="text-center"><label>
+                                    <input class="btn btn-success disabled" value="{{$order->status}}">
+                                </label></td>
                         </tr>
                     @endforeach
                 </table>
