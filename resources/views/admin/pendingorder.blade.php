@@ -4,4 +4,5 @@ Pending Orders - Dragon Component
 @endsection
 @section('content')
 Pending Orders
+
 @endsection
