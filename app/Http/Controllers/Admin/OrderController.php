@@ -13,4 +13,10 @@ class OrderController extends Controller
         return view('admin.pendingorder', compact('pending_orders'));
     }
 
+    public function CompletedOrder()
+    {
+        $pending_orders = Order::where('status', 'completed')->latest()->get();
+        return view('admin.completedorder', compact('pending_orders'));
+    }
+
 }

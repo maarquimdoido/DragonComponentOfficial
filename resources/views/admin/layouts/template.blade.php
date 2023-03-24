@@ -84,7 +84,7 @@ l
             </li>
 
             <!-- Layouts -->
-           
+
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Category</span>
             </li>
@@ -143,12 +143,26 @@ l
               <span class="menu-header-text">Orders</span>
             </li>
 
+              <li class="menu-item ">
+                  <a href="{{route('completedorder')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Completed Orders</div>
+                  </a>
+              </li>
+
             <li class="menu-item ">
               <a href="{{route('pendingorder')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Pending Orders</div>
               </a>
             </li>
+
+              <li class="menu-item ">
+                  <a href="{{route('pendingorder')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Canceled Orders</div>
+                  </a>
+              </li>
           </ul>
         </aside>
         <!-- / Menu -->
