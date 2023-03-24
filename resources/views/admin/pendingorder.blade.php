@@ -33,7 +33,7 @@ Pending Orders - Dragon Component
                             <td class="text-center">{{$order->quantity}}</td>
                             <td class="text-center">{{$order->total_price}} €</td>
                             <td><a href="" class="btn btn-success ">Confirm Order</a>
-                                <a href="" class="btn btn-danger">Cancel Order</a>
+                                <a href="" class="btn bt-danger">Cancel Order</a>
                             </td>
                         </tr>
                     @endforeach
