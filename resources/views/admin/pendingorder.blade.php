@@ -13,7 +13,7 @@ Pending Orders - Dragon Component
                     <tr>
                         <th class="text-center">User Id</th>
                         <th>Shipping Information</th>
-                        <th class="text-center">Product Id</th>
+                        <th class="text-center">Status</th>
                         <th class="text-center">Quantity</th>
                         <th class="text-center">Total Will Pay</th>
                         <th class="text-center">Action</th>

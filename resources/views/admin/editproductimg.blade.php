@@ -17,7 +17,7 @@ Edit Product Image - Dragon Component
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Previous Image</label>
                           <div class="col-sm-10">
-                            <img src="{{asset($productinfo->product_img)}}" alt="">
+                            <img style="height: 500px"src="{{asset($productinfo->product_img)}}" alt="">
                             </div>
                         </div>
 

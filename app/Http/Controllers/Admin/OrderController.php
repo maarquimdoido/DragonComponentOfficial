@@ -16,6 +16,12 @@ class OrderController extends Controller
     {
         $pending_orders = Order::where('status', 'confirmed')->latest()->get();
         return view('admin.completedorder', compact('pending_orders'));
+        $order = new Order;
+        $order->status = 'confirmed';
+        $order->save();
+
+
+
     }
 
 }
