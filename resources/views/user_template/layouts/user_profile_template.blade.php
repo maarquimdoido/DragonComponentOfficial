@@ -7,7 +7,6 @@
                     <ul>
                         <li><a href="{{route('userprofile')}}">Dashboard</a></li>
                         <li><a href="{{route('orders')}}">Orders</a></li>
-                        <li><a href="{{route('pendingorders')}}">Confirmed Orders</a></li>
                         <li><a href="{{route('pendingorders')}}">Pending Orders</a></li>
                         <li><a href="{{route('canceledorders')}}">Canceled Orders</a></li>
                         <li><a href="{{route('userprofile')}}">Logout</a></li>
