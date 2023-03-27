@@ -1,12 +1,12 @@
 @extends('admin.layouts.template')
 @section('page_title')
-    Completed Orders - Dragon Component
+    Canceled Orders - Dragon Component
 @endsection
 @section('content')
     <div class="container my-5">
         <div class="card ">
             <div class="card-title">
-                <h2 class="text-center my-4">Orders Completed</h2>
+                <h2 class="text-center my-4">Orders Canceled</h2>
             </div>
             <div class="card-body">
                 <table class="table">
@@ -29,17 +29,12 @@
                                     <li>Street Info - {{$order->shipping_streetinfo}}</li>
                                 </ul>
                             </td>
-                            <form action="{{route('canceledorder')}}">
-                                @csrf
-                                <input type="hidden" value="{{$order->id}}" name="id">
-                                <td class="text-center">{{$order->product_id}}</td>
-                                <td class="text-center">{{$order->quantity}}</td>
-                                <td class="text-center">{{$order->total_price}} €</td>
-                                <td class="text-center">
-                                        <input class="btn btn-success disabled" value="{{$order->status}}">
-                                        <input type="submit" value="Cancelar" class="btn btn-danger " style="width:73%">
-                                </td>
-                            </form>
+                            <td class="text-center">{{$order->product_id}}</td>
+                            <td class="text-center">{{$order->quantity}}</td>
+                            <td class="text-center">{{$order->total_price}}</td>
+                            <td class="text-center"><label>
+                                    <input class="btn btn-danger disabled" value="{{$order->status}}">
+                                </label></td>
                         </tr>
                     @endforeach
                 </table>

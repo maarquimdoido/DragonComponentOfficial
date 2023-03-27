@@ -30,12 +30,13 @@ Pending Orders - Dragon Component
                                 </ul>
                             </td>
                             <form action="{{route('completedorder')}}" method="GET">
-                                <td class="text-center">{{$order->product_id}}</td>
+                                @csrf
+                                <input type="hidden" value="{{$order->id}}" name="id">
+                                <td class="text-center">{{$order->status}}</td>
                                 <td class="text-center">{{$order->quantity}}</td>
                                 <td class="text-center">{{$order->total_price}} €</td>
                                 <td>
                                     <input class="btn btn-success" type="submit" value="Confirm Order">
-                                    <input class="btn btn-danger" type="submit" value="Cancel Order">
                                 </td>
                             </form>
                         </tr>

@@ -41,6 +41,7 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
         Route::get('/checkout', 'Checkout')->name('checkout');
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
+        Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/history', 'History')->name('History');
         Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
@@ -96,7 +97,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
         Route::get('/admin/completed-order', 'CompletedOrder')->name('completedorder');
-        Route::get('/admin/pending-order', 'Index')->name('pendingorder');
+        Route::get('/admin/canceled-order', 'CanceledOrder')->name('canceledorder');
     });
 
 

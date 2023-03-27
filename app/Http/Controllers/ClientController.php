@@ -123,6 +123,13 @@ class ClientController extends Controller
         return view('user_template.userprofile');
     }
 
+    public function Orders()
+    {
+    
+        $orders = Order::where('status', 'confirmed')->latest()->get();
+        return view('user_template.orders', compact('orders'));
+    }
+
     public function PendingOrders()
     {
         $pending_orders = Order::where('status', 'pending')->latest()->get();
