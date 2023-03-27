@@ -17,6 +17,7 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <link rel="shortcut icon" href="{{ asset('home/images/fav.jpg') }}" type="image/x-icon">
       <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="{{ asset('home/css/bootstrap.min.css') }}">
       <!-- style css -->
@@ -65,7 +66,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="{{ asset('home/images/logo.png') }}"></a></div>
+                     <div class="logo"><a href="index.html"><img src=""></a></div>
                   </div>
                </div>
             </div>
@@ -104,26 +105,25 @@
                      </div>
                   </div>
                   <div class="header_box">
-                     <div class="lang_box ">
-                        <a href="#" title="Language" class="nav-link" data-toggle="dropdown" aria-expanded="true">
-                        <img src="{{ asset('home/images/flag-uk.png') }}" alt="flag" class="mr-2 " title="United Kingdom"> English <i class="fa fa-angle-down ml-2" aria-hidden="true"></i>
-                        </a>
-                        <div class="dropdown-menu ">
-                           <a href="#" class="dropdown-item">
-                           <img src="{{ asset('home/images/flag-france.png') }}" class="mr-2" alt="flag">
-                           French
-                           </a>
-                        </div>
-                     </div>
                      <div class="login_menu">
                         <ul>
                            <li><a href="/add-to-cart">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>
-                           <li><a href="/user-profile">
+                           <li>
+                              <span class="">/</span>
+                           </li>
+                           <li><a href="/login">
                               <i class="fa fa-user" aria-hidden="true"></i>
-                              <span class="padding_10">Profile</span></a>
+                              <span class="padding_10">Login</span></a>
+                           </li>
+                           <li>
+                              <span class="">/</span>
+                           </li>
+                           <li><a href="/register">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span class="padding_10">Register</span></a>
                            </li>
                         </ul>
                      </div>
@@ -155,9 +155,7 @@
             <div class="footer_menu">
                <ul>
                   <li><a href="#">Best Sellers</a></li>
-                  <li><a href="#">Gift Ideas</a></li>
-                  <li><a href="#">New Releases</a></li>
-                  <li><a href="#">Today's Deals</a></li>
+                  <li><a href="#">Credits</a></li>
                   <li><a href="#">Customer Service</a></li>
                </ul>
             </div>

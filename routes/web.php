@@ -53,8 +53,8 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/home', function () {
+    return view('/home');
 })->middleware(['auth', 'verified', 'role:user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
