@@ -48,8 +48,9 @@
         </div>
     </div>
 
-    <form action="" method="POST">
+    <form action="{{route('cancelcheckout')}}" method="GET">
         @csrf
+        <input type="hidden" value="{{$item->id}}" name="id">
         <input type="submit" value="Cancel Order" class="btn btn-danger mr-3">
     </form>
 

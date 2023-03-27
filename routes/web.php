@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('/', 'Index')->name('Home');
+    Route::get('/', 'Index')->name('home');
 });
 
 Route::controller(ClientController::class)->group(function(){
@@ -39,6 +39,7 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
         Route::post('/add-shipping-address', 'AddShippingAddress')->name('addshippingaddress');
         Route::post('/place-order', 'PlaceOrder')->name('placeorder');
         Route::get('/checkout', 'Checkout')->name('checkout');
+        Route::get('/cancel-checkout', 'CheckoutCancel')->name('cancelcheckout');
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/orders', 'Orders')->name('orders');

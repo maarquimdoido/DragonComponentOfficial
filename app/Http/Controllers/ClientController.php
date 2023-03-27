@@ -88,6 +88,14 @@ class ClientController extends Controller
         return view('user_template.checkout', compact('cart_item', 'shipping_address'));
     }
 
+    public function CheckoutCancel(Request $request)
+    {
+        $id = $request->id;
+        $allproducts = Product::latest()->get();
+        Cart::findOrFail($id)->delete();
+        return view('user_template.home', compact('allproducts'));
+    }
+
     public function PlaceOrder()
     {
         $userid = Auth::id();
