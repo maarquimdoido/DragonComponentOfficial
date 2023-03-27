@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('/', 'Index')->name('home');
+    Route::get('/credits', 'Credits')->name('credits');
 });
 
 Route::controller(ClientController::class)->group(function(){
