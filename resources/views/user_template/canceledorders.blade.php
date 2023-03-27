@@ -1,6 +1,6 @@
 @extends('user_template.layouts.user_profile_template')
 @section('profilecontent')
-<h2>Confirmed Orders</h2>
+<h2>Canceled Orders</h2>
     <table class="table">
         <tr>
             <th>Product ID</th>
