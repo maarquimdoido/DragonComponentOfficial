@@ -117,14 +117,14 @@
                            <li><a href="/login">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Login</span></a>
-                           </li>
-                           <li>
+                            <li>
+                            <li>
                               <span class="">/</span>
                            </li>
-                           <li><a href="/register">
+                           <li><a href="/user-profile">
                               <i class="fa fa-user" aria-hidden="true"></i>
-                              <span class="padding_10">Register</span></a>
-                           </li>
+                              <span class="padding_10">Details</span></a>
+                            <li>
                         </ul>
                      </div>
                   </div>

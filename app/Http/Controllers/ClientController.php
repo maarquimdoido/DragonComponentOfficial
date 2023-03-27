@@ -150,6 +150,12 @@ class ClientController extends Controller
         return view('user_template.pendingorders', compact('pending_orders'));
     }
 
+    public function CompletedOrders()
+    {
+        $pending_orders = Order::where('status', 'confirmed')->latest()->get();
+        return view('user_template.pendingorders', compact('pending_orders'));
+    }
+
     public function History()
     {
         return view('user_template.History');
