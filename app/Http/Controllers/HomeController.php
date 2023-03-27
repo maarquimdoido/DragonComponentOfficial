@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function Index()
     {
         $allproducts = Product::latest()->get();
-        return view('un_registered.home', compact('allproducts'));
+        return view('user_template.home', compact('allproducts'));
     }
 
     public function Credits()
