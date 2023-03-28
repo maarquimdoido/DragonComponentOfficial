@@ -4,17 +4,17 @@
     <table class="table">
         <tr>
             <th>User ID</th>
-            <th>Product ID</th>
+            <th>Order ID</th>
             <th>Price</th>
             <th>Status</th>
         </tr>
-        @foreach($orders as $order )
+        @foreach($confirmed_orders as $order )
         <tr>
             <td>
                 {{ $order->userid }}
             </td>
             <td>
-                {{ $order->product_id }}
+                {{ $order->id }}
             </td>
             <td>
             {{ $order->total_price }}€
