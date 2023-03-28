@@ -148,18 +148,18 @@ class ClientController extends Controller
         // $status = $request->status;
         $id = $request->id;
         $userid = Auth::id();
-        $orders = Order::where('userid', $userid)->latest()->get();
+        $pending_orders = Order::where('userid', $userid)->where('status','pending')->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'pending')->get();
-        return view('user_template.pendingorders', compact('orders'));
+        return view('user_template.pendingorders', compact('pending_orders'));
     }
     public function CanceledOrders(Request $request)
     {
         // $status = $request->status;
         $id = $request->id;
         $userid = Auth::id();
-        $orders = Order::where('userid', $userid)->latest()->get();
+        $canceled_orders = Order::where('userid', $userid)->where('status','canceled')->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
-        return view('user_template.canceledorders', compact('orders'));
+        return view('user_template.canceledorders', compact('canceled_orders'));
     }
 
 

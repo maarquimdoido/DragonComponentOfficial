@@ -8,7 +8,7 @@
             <th>Price</th>
             <th>Status</th>
         </tr>
-        @foreach($orders as $order )
+        @foreach($canceled_orders as $order )
         <tr>
             <td>
                 {{ $order->userid }}
