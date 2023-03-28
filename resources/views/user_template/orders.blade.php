@@ -20,7 +20,7 @@
             {{ $order->total_price }}€
             </td>
             <td>
-            {{ $order->status }}
+            <input type="button" class="btn btn-success disabled" value="{{ $order->status }}"></input>
             </td>
         </tr>
         @endforeach
