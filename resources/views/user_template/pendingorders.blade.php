@@ -9,12 +9,16 @@
 
     <table class="table">
         <tr>
+            <th>User ID</th>
             <th>Product ID</th>
             <th>Price</th>
             <th>Status</th>
         </tr>
         @foreach($pending_orders as $order )
         <tr>
+            <td>
+                {{ $order->userid }}
+            </td>
             <td>
                 {{ $order->product_id }}
             </td>

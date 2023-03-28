@@ -131,24 +131,30 @@ class ClientController extends Controller
         return view('user_template.userprofile');
     }
 
-    public function Orders()
+    public function Orders(Request $request)
     {
-        $orders = Order::where('status', 'confirmed')->latest()->get();
-        return view('user_template.orders', compact('orders'));
+
+        $userid = Auth::id();
+        $orders = Order::where('userid', $userid)->latest()->get();
+        $pending_orders = Order::where('status', 'confirmed')->latest()->get();
+        return view('user_template.orders', compact('orders','pending_orders'));
     }
 
-    public function CanceledOrders()
+    public function PendingOrders(Request $request)
     {
-
-        $orders = Order::where('status', 'canceled')->latest()->get();
-        return view('user_template.canceledorders', compact('orders'));
-    }
-
-    public function PendingOrders()
-    {
+        $userid = Auth::id();
+        $orders = Order::where('userid', $userid)->latest()->get();
         $pending_orders = Order::where('status', 'pending')->latest()->get();
-        return view('user_template.pendingorders', compact('pending_orders'));
+        return view('user_template.canceledorders', compact('orders', 'pending_orders'));
     }
+    public function CanceledOrders(Request $request)
+    {
+        $userid = Auth::id();
+        $orders = Order::where('userid', $userid)->latest()->get();
+        $pending_orders = Order::where('status', 'canceled')->latest()->get();
+        return view('user_template.canceledorders', compact('orders', 'pending_orders'));
+    }
+
 
     public function History()
     {

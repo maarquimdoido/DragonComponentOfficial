@@ -3,12 +3,16 @@
 <h2>Canceled Orders</h2>
     <table class="table">
         <tr>
+            <th>User ID</th>
             <th>Product ID</th>
             <th>Price</th>
             <th>Status</th>
         </tr>
         @foreach($orders as $order )
         <tr>
+            <td>
+                {{ $order->userid }}
+            </td>
             <td>
                 {{ $order->product_id }}
             </td>

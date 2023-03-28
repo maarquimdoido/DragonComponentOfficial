@@ -18,7 +18,7 @@ class OrderController extends Controller
     {
         $id = $request->id;
         DB::table('orders')
-        ->where('id', $id)  // find your user by their email
+        ->where('id', $id)  // find your user by their id
         ->update(['status' => 'confirmed']);  // update the record in the DB.
         $pending_orders = Order::where('status', 'confirmed')->latest()->get();
         return view('admin.completedorder', compact('pending_orders'));
