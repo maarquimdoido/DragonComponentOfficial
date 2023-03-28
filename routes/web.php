@@ -47,7 +47,6 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/canceled-orders', 'CanceledOrders')->name('canceledorders');
-        Route::get('/user-profile/history', 'History')->name('History');
         Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
         Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');

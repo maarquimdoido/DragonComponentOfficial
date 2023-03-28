@@ -163,10 +163,6 @@ class ClientController extends Controller
     }
 
 
-    public function History()
-    {
-        return view('user_template.History');
-    }
 
     public function NewRelease()
     {
