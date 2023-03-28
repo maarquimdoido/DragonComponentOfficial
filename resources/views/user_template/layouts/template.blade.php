@@ -125,16 +125,28 @@ $categories = App\Models\Category::latest()->get();
                         </li>
                         @auth
                         <li><a href="/">
-                           <i class="fa fa-user" aria-hidden="true"></i>
+                              <i class="fa fa-user" aria-hidden="true"></i>
 
-                           <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
-                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              @csrf
-                          </form>
-                     <li>
-                     
-                        @endauth
-                        @guest
+                              <a href="{{route('logout')}}"
+                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
+                                 out</a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                 style="display: none;">
+                                 @csrf
+                              </form>
+                        <li>
+
+                        <li>
+                           <span class="">/</span>
+
+                        </li>
+                        <li><a href="/user-profile">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span class="padding_10">Details</span></a>
+                        <li>
+
+                           @endauth
+                           @guest
 
                         <li><a href="/login">
                               <i class="fa fa-user" aria-hidden="true"></i>
@@ -142,7 +154,7 @@ $categories = App\Models\Category::latest()->get();
                         </li>
                         @endguest
 
-                       
+
                      </ul>
                   </div>
                </div>
