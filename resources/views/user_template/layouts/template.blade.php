@@ -116,6 +116,7 @@ $categories = App\Models\Category::latest()->get();
                <div class="header_box">
                   <div class="login_menu">
                      <ul>
+                        @auth
                         <li><a href="/add-to-cart">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
@@ -123,7 +124,6 @@ $categories = App\Models\Category::latest()->get();
                         <li>
                            <span class="">/</span>
                         </li>
-                        @auth
                         <li><a href="/">
                               <i class="fa fa-user" aria-hidden="true"></i>
 
@@ -151,6 +151,14 @@ $categories = App\Models\Category::latest()->get();
                         <li><a href="/login">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Login</span></a>
+                        </li>
+                        <li>
+                           <span class="">/</span>
+
+                        </li>
+                        <li><a href="/register">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span class="padding_10">Register</span></a>
                         </li>
                         @endguest
 
