@@ -10,6 +10,7 @@ use App\Models\Shippinginfo;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -133,26 +134,31 @@ class ClientController extends Controller
 
     public function Orders(Request $request)
     {
-
+        $status = $request->status;
+        $id = $request->userid;
         $userid = Auth::id();
         $orders = Order::where('userid', $userid)->latest()->get();
-        $pending_orders = Order::where('status', 'confirmed')->latest()->get();
-        return view('user_template.orders', compact('orders','pending_orders'));
+        // $orders = DB::table('orders')->where('status', '=', 'confirmed')->get();
+        return view('user_template.orders', compact('orders'));
     }
 
     public function PendingOrders(Request $request)
     {
+        $status = $request->status;
+        $id = $request->userid;
         $userid = Auth::id();
         $orders = Order::where('userid', $userid)->latest()->get();
-        $pending_orders = Order::where('status', 'pending')->latest()->get();
-        return view('user_template.pendingorders', compact('orders', 'pending_orders'));
+        // $orders = DB::table('orders')->where('status', '=', 'pending')->get();
+        return view('user_template.pendingorders', compact('orders'));
     }
     public function CanceledOrders(Request $request)
     {
+        $status = $request->status;
+        $id = $request->userid;
         $userid = Auth::id();
-        $orders = Order::where('userid', $userid)->latest()->get();
-        $pending_orders = Order::where('status', 'pending')->latest()->get();
-        return view('user_template.canceledorders', compact('orders', 'pending_orders'));
+        $orders = Order::where('userid', $id)->latest()->get();
+        // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
+        return view('user_template.canceledorders', compact('orders'));
     }
 
 
