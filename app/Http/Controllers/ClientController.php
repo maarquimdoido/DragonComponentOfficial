@@ -93,7 +93,7 @@ class ClientController extends Controller
         $id = $request->id;
         $allproducts = Product::latest()->get();
         Cart::findOrFail($id)->delete();
-        return view('user_template.home', compact('allproducts'));
+        return redirect()->route('addtocart')->with('message', 'Your Order Has Been Deleted Successfully');
     }
 
     public function PlaceOrder()
@@ -145,13 +145,13 @@ class ClientController extends Controller
         $userid = Auth::id();
         $orders = Order::where('userid', $userid)->latest()->get();
         $pending_orders = Order::where('status', 'pending')->latest()->get();
-        return view('user_template.canceledorders', compact('orders', 'pending_orders'));
+        return view('user_template.pendingorders', compact('orders', 'pending_orders'));
     }
     public function CanceledOrders(Request $request)
     {
         $userid = Auth::id();
         $orders = Order::where('userid', $userid)->latest()->get();
-        $pending_orders = Order::where('status', 'canceled')->latest()->get();
+        $pending_orders = Order::where('status', 'pending')->latest()->get();
         return view('user_template.canceledorders', compact('orders', 'pending_orders'));
     }
 
