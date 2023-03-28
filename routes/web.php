@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile-destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/logout', [ProfileController::class, 'destroy'])
+    ->name('profile.destroy')
+    ->middleware('auth')
+;
+
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(DashboardController::class)->group(function(){
