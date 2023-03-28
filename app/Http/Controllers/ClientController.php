@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Shippinginfo;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -127,25 +128,25 @@ class ClientController extends Controller
 
 
 
-    public function UserProfile()
+    public function UserProfile(Request $request)
     {
         return view('user_template.userprofile');
     }
 
     public function Orders(Request $request)
     {
-        $status = $request->status;
+        // $status = $request->status;
         $id = $request->userid;
         $userid = Auth::id();
         $orders = Order::where('userid', $userid)->latest()->get();
-        // $orders = DB::table('orders')->where('status', '=', 'confirmed')->get();
+        // $orders = DB::table('orders')->where('status', '=', 'confirmed')->get();]
         return view('user_template.orders', compact('orders'));
     }
 
     public function PendingOrders(Request $request)
     {
-        $status = $request->status;
-        $id = $request->userid;
+        // $status = $request->status;
+        $id = $request->id;
         $userid = Auth::id();
         $orders = Order::where('userid', $userid)->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'pending')->get();
@@ -153,10 +154,10 @@ class ClientController extends Controller
     }
     public function CanceledOrders(Request $request)
     {
-        $status = $request->status;
-        $id = $request->userid;
+        // $status = $request->status;
+        $id = $request->id;
         $userid = Auth::id();
-        $orders = Order::where('userid', $id)->latest()->get();
+        $orders = Order::where('userid', $userid)->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
         return view('user_template.canceledorders', compact('orders'));
     }
