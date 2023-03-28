@@ -14,7 +14,8 @@
             <th>Price</th>
             <th>Status</th>
         </tr>
-        @foreach($pending_orders as $order )
+        @foreach($orders as $order )
+        <input hidden="text"  value="{{$order->userid}}" name="userid" >
         <tr>
             <td>
                 {{ $order->userid }}
@@ -25,6 +26,7 @@
             <td>
             {{ $order->total_price }}€
             </td>
+            <input hidden="text"  value="{{$order->status}}" name="status" >
             <td>
             {{ $order->status }}
             </td>
