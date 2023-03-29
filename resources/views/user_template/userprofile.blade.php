@@ -8,5 +8,5 @@
                 <li>Criada em : {{ Auth::user()->created_at }}</li>
                 </ul>
         </table><br><br>
-        <form action="{{route('profile.edit')}}" method="GET"><input type="submit" class="btn btn-primary mr-3" value="Editar informações"></form>
+        <form action="{{route('profile.edit')}}" method="GET"><input type="submit" class="btn btn-danger mr-3" value="Editar informações"></form>
 @endsection
