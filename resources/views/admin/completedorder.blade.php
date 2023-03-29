@@ -36,8 +36,8 @@
                                 <td class="text-center">{{$order->quantity}}</td>
                                 <td class="text-center">{{$order->total_price}} €</td>
                                 <td class="text-center">
-                                        <input class="btn btn-success disabled" value="{{$order->status}}">
-                                        <input type="submit" value="Cancelar" class="btn btn-danger " style="width:73%">
+                                        <input class="btn btn-success disabled" type="button" value="{{$order->status}}">
+                                        <input type="submit" value="Cancelar"  class="btn text-white" style="background-color:#dc3545;">
                                 </td>
                             </form>
                         </tr>
