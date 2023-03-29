@@ -31,7 +31,7 @@ All Products - Dragon Component
                         <td>
                           <img  style="height: 100px;"src="{{asset($product->product_img)}}" alt="">
                           <br>
-                            <a href="{{route('editproductimg', $product->id)}}" class="btn btn-danger">Update Image</a>
+                            <a href="{{route('editproductimg', $product->id)}}" class="btn text-white" style="background-color:#dc3545;">Update Image</a>
                         </td>
                         <td>{{$product->price}}  €</td>
                         <td>
