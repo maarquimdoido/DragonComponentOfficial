@@ -25,8 +25,10 @@ $categories = App\Models\Category::latest()->get();
    <link rel="stylesheet" type="text/css" href="{{ asset('home/css/style.css') }}">
    <!-- Responsive-->
    <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}">
+
+   <link rel="stylesheet" href="{{ asset('home/css/customscrollbar.css') }}">
    <!-- fevicon -->
-   <link rel="icon" href="{{ asset('home/images/fevicon.png') }}" type="image/gif" />
+   <link rel="icon" href="{{ asset('home/images/fav.png') }}" type="image/gif" />
    <!-- Scrollbar Custom CSS -->
    <link rel="stylesheet" href="{{ asset('home/css/jquery.mCustomScrollbar.min.css') }}">
    <!-- Tweaks for older IEs-->
@@ -91,7 +93,7 @@ $categories = App\Models\Category::latest()->get();
                <span class="toggle_icon" onclick="openNav()"><img
                      src="{{ asset('home/images/toggle-icon.png') }}"></span>
                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -102,6 +104,7 @@ $categories = App\Models\Category::latest()->get();
                   </div>
                </div>
                <div class="main">
+
                   <!-- Another variation with a button -->
                   <div class="input-group">
                      <input type="text" class="form-control" placeholder="Search this blog">
@@ -117,9 +120,20 @@ $categories = App\Models\Category::latest()->get();
                   <div class="login_menu">
                      <ul>
                         @auth
-                        <li><a href="/add-to-cart">
-                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                              <span class="padding_10">Cart</span></a>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButton">{{ Auth::user()->name }}</button>
+                            <div class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a href="/add-to-cart" class="dropdown-item text-dark"><span class="padding_10">Cart</span></a>
+                                <a href="/user-profile" class="dropdown-item text-dark"><span class="padding_10">Details</span></a>
+                                <a class="dropdown-item text-dark" href="{{route('logout')}}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="padding_10">Logout</span></a>
+                            </div>
+                        </div>
+                        </li>
+                        <li><a href="">
+                              <i class="" aria-hidden="true"></i>
+                              </a>
                         </li>
                         <li>
                            <span class="">/</span>

@@ -1,4 +1,4 @@
---------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
+/* --------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/ 
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
 @import url(animate.min.css);
@@ -171,7 +171,7 @@ img {
 
 .form-control:focus {
     border-color: #ffffff !important;
-    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+    box-shadow: 0 0 0 1px #DC3545;
 }
 
 .navbar-form input {
@@ -259,7 +259,7 @@ button {
 }
 
 .custom_menu li a:hover {
-    color: #f26522;
+    color: #dc3545;
 }
 
 
@@ -305,7 +305,7 @@ button {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #dc3546b7;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -321,7 +321,7 @@ button {
 }
 
 .sidenav a:hover {
-    color: #f26522;
+    color: #2B2A29;
 }
 
 .sidenav .closebtn {
@@ -440,7 +440,7 @@ button {
 }
 
 .login_menu li a:hover {
-    color: #f26522;
+    color: #dc3545;
 }
 
 .padding_10 {
@@ -642,7 +642,7 @@ a:hover {
 
 .seemore_bt a:hover {
     background-color: transparent;
-    color: #f26522;
+    color: #DC3545;
 }
 
 #main_slider a.carousel-control-next {
@@ -853,7 +853,7 @@ input.mail_bt::placeholder {
     width: 30%;
     float: right;
     font-size: 16px;
-    color: #f26522;
+    color: #DC3545;
     background-color: transparent;
     padding: 20px 0px 5px 0px;
     border-radius: 30px;
@@ -863,11 +863,11 @@ input.mail_bt::placeholder {
 }
 
 .subscribe_bt a {
-    color: #f26522;
+    color: #DC3545;
 }
 
 .subscribe_bt a:hover {
-    color: #ffffff;
+    color: #DC3545;
 }
 
 .footer_menu {
@@ -894,7 +894,7 @@ input.mail_bt::placeholder {
 }
 
 .footer_menu li a:hover {
-    color: #f26522;
+    color: #DC3545;
 }
 
 .location_main {
@@ -916,7 +916,7 @@ input.mail_bt::placeholder {
 }
 
 .location_main a:hover {
-    color: #f26522;
+    color: #DC3545;
 }
 
 
@@ -946,7 +946,7 @@ input.mail_bt::placeholder {
 }
 
 .copyright_text a:hover {
-    color: #f26522;
+    color: #DC3545;
 }
 
 .margin_top90 {
