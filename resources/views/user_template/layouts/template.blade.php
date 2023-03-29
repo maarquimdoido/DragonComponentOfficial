@@ -25,10 +25,8 @@ $categories = App\Models\Category::latest()->get();
    <link rel="stylesheet" type="text/css" href="{{ asset('home/css/style.css') }}">
    <!-- Responsive-->
    <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}">
-
-   <link rel="stylesheet" href="{{ asset('home/css/customscrollbar.css') }}">
    <!-- fevicon -->
-   <link rel="icon" href="{{ asset('home/images/fav.png') }}" type="image/gif" />
+   <link rel="icon" href="{{ asset('home/images/fevicon.png') }}" type="image/gif" />
    <!-- Scrollbar Custom CSS -->
    <link rel="stylesheet" href="{{ asset('home/css/jquery.mCustomScrollbar.min.css') }}">
    <!-- Tweaks for older IEs-->
@@ -110,7 +108,7 @@ $categories = App\Models\Category::latest()->get();
                      <input type="text" class="form-control" placeholder="Search this blog">
                      <div class="input-group-append">
                         <button class="btn btn-secondary" type="button"
-                           style="background-color: #f26522; border-color:#f26522 ">
+                           style="background-color:#30302e; border-color:#30302e ">
                            <i class="fa fa-search"></i>
                         </button>
                      </div>
@@ -131,34 +129,11 @@ $categories = App\Models\Category::latest()->get();
                             </div>
                         </div>
                         </li>
-                        <li><a href="">
-                              <i class="" aria-hidden="true"></i>
-                              </a>
-                        </li>
-                        <li>
-                           <span class="">/</span>
-                        </li>
-                        <li><a href="/">
-                              <i class="fa fa-user" aria-hidden="true"></i>
-
-                              <a href="{{route('logout')}}"
-                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
-                                 out</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                  style="display: none;">
                                  @csrf
                               </form>
                         <li>
-
-                        <li>
-                           <span class="">/</span>
-
-                        </li>
-                        <li><a href="/user-profile">
-                              <i class="fa fa-user" aria-hidden="true"></i>
-                              <span class="padding_10">Details</span></a>
-                        <li>
-
                            @endauth
                            @guest
 
