@@ -174,7 +174,7 @@ $categories = App\Models\Category::latest()->get();
    <!-- footer section start -->
    <div class="footer_section layout_padding">
       <div class="container">
-         <div class="footer_logo"><a href="index.html"><img src="{{ asset('home/images/footer-logo.png') }}"></a></div>
+         <div class="footer_logo"><a href="index.html"><img style="width:100px" src="{{asset('home/images/logoMeh.png')}}"></a></div>
          <div class="input_bt">
             <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
             <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
