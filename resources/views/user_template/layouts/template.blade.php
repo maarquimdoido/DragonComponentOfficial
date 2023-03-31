@@ -71,7 +71,7 @@ $categories = App\Models\Category::latest()->get();
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <div class="logo"><a href="index.html"><img src=""></a></div>
+                  <div class="logo"><a href="index.html"><img style="width:100px"src="{{asset('home/images/logoMeh.png')}}"></a></div>
                </div>
             </div>
          </div>
