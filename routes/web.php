@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MailController;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::controller(HomeController::class)->group(function(){
     Route::get('/', 'Index')->name('home');
     Route::get('/credits', 'Credits')->name('credits');
@@ -32,6 +34,11 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/product-details/{id}/{slug}', 'SingleProduct')->name('singleproduct');
     Route::get('/new-release', 'NewRelease')->name('newrelease');
 });
+
+Route::controller(MailController::class)->group(function(){
+    Route::get('/verification', 'sendMail')->name('verification');
+});
+
 
 Route::middleware(['auth', 'role:user'  ])->group(function(){
     Route::controller(ClientController::class)->group(function(){
