@@ -43,7 +43,7 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
         Route::get('/checkout', 'Checkout')->name('checkout');
         Route::get('/cancel-checkout', 'CheckoutCancel')->name('cancelcheckout');
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
-        Route::get('/user-profile/confirmed-order', 'ConfirmedOrder')->name('confirmedorder');
+        Route::get('/user-profile/confirmed-order', 'ConfirmedOrder')->name('confirmedorders');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/canceled-orders', 'CanceledOrders')->name('canceledorders');
