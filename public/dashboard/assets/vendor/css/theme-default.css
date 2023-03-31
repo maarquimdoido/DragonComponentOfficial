@@ -96,19 +96,19 @@
 }
 
 .text-primary {
-  color: #696cff !important;
+  color: #dc3545 !important;
 }
 
 .text-body[href]:hover {
-  color: #5f61e6 !important;
+  color: #dc3545 !important;
 }
 
 .bg-primary {
-  background-color: #696cff !important;
+  background-color: #dc3545 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus {
-  background-color: #6467f2 !important;
+  background-color: #dc3545 !important;
 }
 
 .dropdown-notifications-item:not(.mark-as-read) .dropdown-notifications-read span {
@@ -307,7 +307,7 @@ button.list-group-item-primary.active {
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #696cff;
+  border-color: #dc3546;
 }
 
 .input-group:focus-within .form-control,
@@ -739,31 +739,31 @@ a:hover {
 html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item.open > .menu-link, .layout-menu-hover.layout-menu-collapsed .bg-menu-theme .menu-inner .menu-item.open > .menu-link,
 html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-link:not(.active):hover,
 .layout-menu-hover.layout-menu-collapsed .bg-menu-theme .menu-inner .menu-item .menu-link:not(.active):hover {
-  background-color: rgba(67, 89, 113, 0.04);
+  background-color: #dc354623;
 }
 .bg-menu-theme .menu-inner .menu-sub > .menu-item.active > .menu-link.menu-toggle {
-  background-color: rgba(67, 89, 113, 0.04);
+  background-color: #dc3545;
 }
 .bg-menu-theme .menu-inner .menu-sub > .menu-item.active .menu-icon {
-  color: #696cff;
+  color: #dc3545;
 }
 .bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
-  color: #696cff;
-  background-color: rgba(105, 108, 255, 0.16) !important;
+  color: #dc3545;
+  background-color: #dc354623 !important;
 }
 .bg-menu-theme .menu-inner > .menu-item.active:before {
-  background: #696cff;
+  background: #dc3545;
 }
 .bg-menu-theme .menu-sub > .menu-item > .menu-link:before {
-  background-color: #b4bdc6 !important;
+  background-color: #dc3545 !important;
 }
 .bg-menu-theme .menu-sub > .menu-item.active > .menu-link:not(.menu-toggle):before {
-  background-color: #696cff !important;
+  background-color: #dc3545 !important;
   border: 3px solid #e7e7ff !important;
 }
 
 .app-brand .layout-menu-toggle {
-  background-color: #696cff;
+  background-color: #dc3545;
   border: 7px solid #f5f5f9;
 }
 .app-brand .layout-menu-toggle i {
@@ -775,19 +775,19 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 
 .bg-footer-theme {
   background-color: #f5f5f9 !important;
-  color: #697a8d;
+  color: #dc3545;
 }
 .bg-footer-theme .footer-link {
-  color: #697a8d;
+  color: #dc3545;
 }
 .bg-footer-theme .footer-link:hover, .bg-footer-theme .footer-link:focus {
-  color: #566a7f;
+  color: #dc3545;
 }
 .bg-footer-theme .footer-link.disabled {
   color: #a1abb8 !important;
 }
 .bg-footer-theme .footer-text {
-  color: #566a7f;
+  color: #dc3545;
 }
 .bg-footer-theme .show > .footer-link,
 .bg-footer-theme .active > .footer-link,

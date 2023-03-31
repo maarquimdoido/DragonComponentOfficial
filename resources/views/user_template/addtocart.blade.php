@@ -31,7 +31,7 @@
                             <td>{{$product_name}}</td>
                             <td>{{$item->quantity}}</td>
                             <td>{{$item->price}}€</td>
-                            <td><a href="{{ route('removeitem', $item->id) }}" class="btn btn-warning">Remove</a></td>
+                            <td><a href="{{ route('removeitem', $item->id) }}" class="btn btn-danger">Remove</a></td>
                         </tr>
                         @php
                             $total = $total + $item->price;
@@ -43,7 +43,7 @@
                         <td></td>
                         <td class="fw-bold">Total</td>
                         <td class="text-center">{{$total}}€</td>
-                            <td><a href="{{route('shippingaddress')}}" class="btn btn-primary ">Checkout Now</a></td>
+                            <td><a href="{{route('shippingaddress')}}" class="btn btn-danger ">Checkout Now</a></td>
                     </tr>
                     @endif
                 </table>

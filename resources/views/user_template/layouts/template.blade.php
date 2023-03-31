@@ -91,7 +91,7 @@ $categories = App\Models\Category::latest()->get();
                <span class="toggle_icon" onclick="openNav()"><img
                      src="{{ asset('home/images/toggle-icon.png') }}"></span>
                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -102,12 +102,13 @@ $categories = App\Models\Category::latest()->get();
                   </div>
                </div>
                <div class="main">
+
                   <!-- Another variation with a button -->
                   <div class="input-group">
                      <input type="text" class="form-control" placeholder="Search this blog">
                      <div class="input-group-append">
                         <button class="btn btn-secondary" type="button"
-                           style="background-color: #f26522; border-color:#f26522 ">
+                           style="background-color:#30302e; border-color:#30302e ">
                            <i class="fa fa-search"></i>
                         </button>
                      </div>
@@ -116,41 +117,37 @@ $categories = App\Models\Category::latest()->get();
                <div class="header_box">
                   <div class="login_menu">
                      <ul>
-                        <li><a href="/add-to-cart">
-                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                              <span class="padding_10">Cart</span></a>
-                        </li>
-                        <li>
-                           <span class="">/</span>
-                        </li>
                         @auth
-                        <li><a href="/">
-                              <i class="fa fa-user" aria-hidden="true"></i>
-
-                              <a href="{{route('logout')}}"
-                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
-                                 out</a>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButton">{{ Auth::user()->name }}</button>
+                            <div class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a href="/add-to-cart" class="dropdown-item text-dark"><span class="padding_10">Cart</span></a>
+                                <a href="/user-profile" class="dropdown-item text-dark"><span class="padding_10">Details</span></a>
+                                <a class="dropdown-item text-dark" href="{{route('logout')}}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="padding_10">Logout</span></a>
+                            </div>
+                        </div>
+                        </li>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                  style="display: none;">
                                  @csrf
                               </form>
                         <li>
-
-                        <li>
-                           <span class="">/</span>
-
-                        </li>
-                        <li><a href="/user-profile">
-                              <i class="fa fa-user" aria-hidden="true"></i>
-                              <span class="padding_10">Details</span></a>
-                        <li>
-
                            @endauth
                            @guest
 
                         <li><a href="/login">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Login</span></a>
+                        </li>
+                        <li>
+                           <span class="">/</span>
+
+                        </li>
+                        <li><a href="/register">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span class="padding_10">Register</span></a>
                         </li>
                         @endguest
 

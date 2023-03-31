@@ -136,11 +136,11 @@ class ClientController extends Controller
     public function Orders(Request $request)
     {
         // $status = $request->status;
-        $id = $request->userid;
+        $id = $request->id;
         $userid = Auth::id();
-        $orders = Order::where('userid', $userid)->latest()->get();
-        // $orders = DB::table('orders')->where('status', '=', 'confirmed')->get();]
-        return view('user_template.orders', compact('orders'));
+        $confirmed_orders = Order::where('userid', $userid)->where('status','confirmed')->latest()->get();
+        // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
+        return view('user_template.orders', compact('confirmed_orders'));
     }
 
     public function PendingOrders(Request $request)
@@ -163,10 +163,6 @@ class ClientController extends Controller
     }
 
 
-    public function History()
-    {
-        return view('user_template.History');
-    }
 
     public function NewRelease()
     {

@@ -56,7 +56,7 @@
 
     <form action="{{route('placeorder')}}" method="POST">
         @csrf
-        <input type="submit" value="Place Order" class="btn btn-primary ">
+        <input type="submit" value="Place Order" class="btn btn-btn-danger ">
     </form>
 </div>
 @endsection()

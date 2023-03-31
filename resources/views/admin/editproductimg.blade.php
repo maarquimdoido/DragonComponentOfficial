@@ -32,7 +32,7 @@ Edit Product Image - Dragon Component
 
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Update Image</button>
+                            <button type="submit" class="btn text-white" style="background-color:#dc3545;">Update Image</button>
                           </div>
                         </div>
                       </form>

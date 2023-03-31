@@ -20,7 +20,7 @@
                                        <input hidden="text"  value="{{$product->price}}" name="price" >
                                        <input hidden="text"  value="1" name="quantity" >
                                        <br>
-                                       <input class="btn btn-warning" type="submit" value="Buy Now">
+                                       <input class="btn btn-danger" type="submit" value="Buy Now">
                                    </form>
                            </div>
                                     <div class="seemore_bt"><a href="{{route('singleproduct', [$product->id, $product->slug])}}">See More</a></div>

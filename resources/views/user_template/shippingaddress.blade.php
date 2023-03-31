@@ -26,7 +26,7 @@
                 <input type="text" class="form-control" name="street_info">
                 </div>
 
-                <input type="submit" value="Next" class="btn btn-primary">
+                <input type="submit" value="Next" class="btn btn-danger">
             </form>
         </div>
     </div>

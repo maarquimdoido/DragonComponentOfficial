@@ -35,7 +35,7 @@ Edit Product - Dragon Component
                             <input type="number" class="form-control" id="quantity" name="quantity" value="{{$productinfo->quantity}}"/>
                             </div>
                         </div>
-                        
+
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Short Description</label>
@@ -53,7 +53,7 @@ Edit Product - Dragon Component
 
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn text-white" style="background-color:#dc3545;">Update</button>
                           </div>
                         </div>
 

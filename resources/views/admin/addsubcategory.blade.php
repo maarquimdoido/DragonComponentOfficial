@@ -33,7 +33,7 @@ Add SubCategory - Dragon Component
                         </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn text-white" style="background-color:#dc3545;">Add</button>
                           </div>
                         </div>
                       </form>

@@ -29,7 +29,7 @@
             </td>
             <input hidden="text"  value="{{$order->status}}" name="status" >
             <td>
-            {{ $order->status }}
+            <input type="button" class="btn btn-info disabled" value="{{ $order->status }}"></input>
             </td>
         </tr>
         @endforeach

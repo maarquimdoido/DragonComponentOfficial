@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MailController;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::controller(HomeController::class)->group(function(){
     Route::get('/', 'Index')->name('home');
     Route::get('/credits', 'Credits')->name('credits');
@@ -32,6 +34,11 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/product-details/{id}/{slug}', 'SingleProduct')->name('singleproduct');
     Route::get('/new-release', 'NewRelease')->name('newrelease');
 });
+
+Route::controller(MailController::class)->group(function(){
+    Route::get('/verification', 'sendMail')->name('verification');
+});
+
 
 Route::middleware(['auth', 'role:user'  ])->group(function(){
     Route::controller(ClientController::class)->group(function(){
@@ -47,7 +54,6 @@ Route::middleware(['auth', 'role:user'  ])->group(function(){
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/canceled-orders', 'CanceledOrders')->name('canceledorders');
-        Route::get('/user-profile/history', 'History')->name('History');
         Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
         Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');

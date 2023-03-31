@@ -36,7 +36,7 @@ Pending Orders - Dragon Component
                                 <td class="text-center">{{$order->quantity}}</td>
                                 <td class="text-center">{{$order->total_price}} €</td>
                                 <td>
-                                    <input class="btn btn-success" type="submit" value="Confirm Order">
+                                    <input class="btn btn-success" type="button" type="submit" value="Confirm Order">
                                 </td>
                             </form>
                         </tr>
