@@ -214,11 +214,8 @@ button {
 .banner_bg_main {
     width: 100%;
     float: left;
-<<<<<<< HEAD
-    /* background-image: url(../images/banner-bg.png); */
-=======
+
     background-image: url(../images/test.png);
->>>>>>> 3c112b051c43d03113537a772047095670e71e10
     height: auto;
     background-size: 100%;
     background-repeat: no-repeat;
