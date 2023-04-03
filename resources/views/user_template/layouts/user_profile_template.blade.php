@@ -1,6 +1,7 @@
 @extends('user_template.layouts.template')
 @section('main-content')
 <div class="container">
+<br><br><br>
     <div class="row">
         <div class="col-lg-4">
             <div class="box_main">

@@ -1,5 +1,6 @@
 @extends('user_template.layouts.template')
 @section('main-content')
+<br><br><br>
 <h2>Add Cart Page</h2>
     @if (session()->has('message'))
         <div class="alert alert-success">
