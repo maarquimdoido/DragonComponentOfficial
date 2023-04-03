@@ -25,7 +25,7 @@
                                        <input class="btn btn-danger" type="submit" value="Buy Now">
                                    </form>
                                 </div>
-                                    <div class="seemore_bt"><a href="{{route('singleproduct', [$product->id, $product->slug])}}">See More</a></div>
+                                    <div class="seemore_bt"><img style="width:30px" src="{{asset('home/images/logoMeh.png')}}"><a href="{{route('singleproduct', [$product->id, $product->slug])}}">See More</a></div>
                                  </div>
                               </div>
                            </div>

@@ -21,7 +21,7 @@
 {{-- Footer --}}
 <x-slot:footer>
 <x-mail::footer>
-© 2023 Dragon Component. @lang('All rights reserved.')
+© {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
 </x-mail::footer>
 </x-slot:footer>
 </x-mail::layout>

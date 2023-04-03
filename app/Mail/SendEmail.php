@@ -8,19 +8,17 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Auth;
 
-class Verification extends Mailable
+class SendEmail extends Mailable
 {
-
     use Queueable, SerializesModels;
-    public $name;
+
     /**
      * Create a new message instance.
      */
-    public function __construct($name)
+    public function __construct()
     {
-        $this->name = $name;
+        //
     }
 
     /**
@@ -29,7 +27,7 @@ class Verification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Verification',
+            subject: 'Send Email',
         );
     }
 
@@ -39,7 +37,7 @@ class Verification extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'Mail.verification',
+            markdown: 'mail.send-email',
         );
     }
 
