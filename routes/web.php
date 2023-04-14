@@ -14,6 +14,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\GithubController;
 use App\Mail\SendEmail;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +46,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/new-release', 'NewRelease')->name('newrelease');
 });
 
-Route::middleware(['auth', 'role:user'  ])->group(function(){
+Route::middleware(['auth', 'role:user'  ])->middleware('verified')->group(function(){
     Route::controller(ClientController::class)->group(function(){
         Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
         Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
@@ -130,3 +131,11 @@ require __DIR__.'/auth.php';
 
 Route::get('auth/github', [GithubController::class, 'redirect'])->name('github.login');
 Route::get('auth/github/callback', [GithubController::class, 'callback']);
+
+// Auth::routes(['verify' => true]);
+
+Route::get('/home', 'HomeController@Index')->name('home')->middleware('verified');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth','verified'])->name('dashboard');
