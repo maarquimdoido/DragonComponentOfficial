@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use SebastianBergmann\LinesOfCode\Exception;
 
 class GithubController extends Controller
 {
@@ -40,9 +41,7 @@ class GithubController extends Controller
             ]);
 
             Auth::login($gitUser);
-        } 
-        catch(Exception $e)
-        {
+        }catch(Exception $e){
 
         }
     }

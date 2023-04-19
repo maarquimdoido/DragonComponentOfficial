@@ -115,6 +115,8 @@ class ClientController extends Controller
                 'product_id'=> $item->product_id,
                 'quantity'=> $item->quantity,
                 'total_price'=> $item->price,
+                'status'=>"pending",
+
             ]);
 
             $id = $item->id;

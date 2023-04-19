@@ -6,7 +6,7 @@
     <div class="container my-5">
         <div class="card ">
             <div class="card-title">
-                <h2 class="text-center my-4">Orders Completed</h2>
+                <h2 class="text-center my-4">Completed Orders</h2>
             </div>
             <div class="card-body">
                 <table class="table">

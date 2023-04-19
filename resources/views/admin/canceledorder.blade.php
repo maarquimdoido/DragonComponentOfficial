@@ -6,7 +6,7 @@
     <div class="container my-5">
         <div class="card ">
             <div class="card-title">
-                <h2 class="text-center my-4">Orders Canceled</h2>
+                <h2 class="text-center my-4">Canceled Orders</h2>
             </div>
             <div class="card-body">
                 <table class="table">
@@ -31,7 +31,7 @@
                             </td>
                             <td class="text-center">{{$order->product_id}}</td>
                             <td class="text-center">{{$order->quantity}}</td>
-                            <td class="text-center">{{$order->total_price}}</td>
+                            <td class="text-center">{{$order->total_price}} €</td>
                             <td class="text-center"><label>
                                     <input class="btn text-white disabled" type="button" style="background-color:#dc3545;" value="{{$order->status}}">
                                 </label></td>

@@ -4,7 +4,7 @@ All SubCategory - Dragon Component
 @endsection
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"> All Categories</h4>
+              <h4 class="fw-bold py-3 mb-4"> All Sub Categories</h4>
               @if (session()->has('message'))
                 <div class="alert alert-success">
                   {{ session()->get('message') }}
