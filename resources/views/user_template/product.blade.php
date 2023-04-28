@@ -1,6 +1,6 @@
 @extends('user_template.layouts.template')
 @section('main-content')
-<div class="container">
+<div class="container" style="padding-top:5%">
     <div class="row">
         <div class="col-lg-4">
             <div class="box_main">
