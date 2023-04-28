@@ -81,15 +81,7 @@ $categories = App\Models\Category::latest()->get();
       <div class="header_section">
          <div class="container">
             <div class="containt_main">
-               <div id="mySidenav" class="sidenav">
-                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  <a href="/">Home</a>
-                  @foreach ($categories as $category)
-                  <a href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name }}</a>
-                  @endforeach
-               </div>
-               <span class="toggle_icon" onclick="openNav()"><img
-                     src="{{ asset('home/images/toggle-icon.png') }}"></span>
+            @auth
                <div class="dropdown">
                   <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
@@ -101,6 +93,7 @@ $categories = App\Models\Category::latest()->get();
                      @endforeach
                   </div>
                </div>
+               @endauth
                <div class="main">
 
                   <!-- Another variation with a button -->

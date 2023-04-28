@@ -1,8 +1,7 @@
 @extends('user_template.layouts.template')
 @section('main-content')
 <!-- fashion section start -->
-<h2 class="py-5">HomePage</h2>
-<div class="fashion_section">
+<div class="fashion_section" style="padding-top:5%;">
          <div id="main_slider">
                   <div class="container">
                      <h1 class="fashion_taital">All Products</h1>

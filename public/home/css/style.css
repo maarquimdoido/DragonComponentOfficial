@@ -216,7 +216,7 @@ button {
     float: left;
 
     background-image: url(../images/test.png);
-    height: auto;
+    height: 270px;
     background-size: 100%;
     background-repeat: no-repeat;
 }
