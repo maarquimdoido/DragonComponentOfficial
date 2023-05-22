@@ -66,7 +66,6 @@ Route::middleware(['auth', 'role:user'  ])->middleware('verified')->group(functi
     });
 });
 
-
 Route::get('/home', function () {
     return view('/home');
 })->middleware(['auth', 'verified', 'role:user'])->name('dashboard');
@@ -81,7 +80,6 @@ Route::post('/logout', [ProfileController::class, 'destroy'])
     ->name('profile.destroy')
     ->middleware('auth')
 ;
-
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(DashboardController::class)->group(function(){
@@ -139,3 +137,4 @@ Route::get('/home', 'HomeController@Index')->name('home')->middleware('verified'
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth','verified'])->name('dashboard');
+

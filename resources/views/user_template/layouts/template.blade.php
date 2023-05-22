@@ -71,7 +71,8 @@ $categories = App\Models\Category::latest()->get();
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <div class="logo"><a href="/"><img style="width:100px"src="{{asset('home/images/logoMeh.png')}}"></a></div>
+                  <div class="logo"><a href="/"><img style="width:100px" src="{{asset('home/images/logoMeh.png')}}"></a>
+                  </div>
                </div>
             </div>
          </div>
@@ -81,7 +82,7 @@ $categories = App\Models\Category::latest()->get();
       <div class="header_section">
          <div class="container">
             <div class="containt_main">
-            @auth
+               @auth
                <div class="dropdown">
                   <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
@@ -110,23 +111,38 @@ $categories = App\Models\Category::latest()->get();
                <div class="header_box">
                   <div class="login_menu">
                      <ul>
+
                         @auth
+
                         <li>
-                            <div class="dropdown">
-                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButton">{{ Auth::user()->name }}</button>
-                            <div class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a href="/add-to-cart" class="dropdown-item text-dark"><span class="padding_10">Cart</span></a>
-                                <a href="/user-profile" class="dropdown-item text-dark"><span class="padding_10">Details</span></a>
-                                <a class="dropdown-item text-dark" href="{{route('logout')}}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="padding_10">Logout</span></a>
-                            </div>
-                        </div>
+                           <div class="dropdown">
+                              <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                 id="dropdownMenuButton">{{ Auth::user()->name }}</button>
+                              <div class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                 @can('admin')
+                                 <a href="/admin/dashboard" class="dropdown-item text-dark"><span
+                                       class="padding_10">Dashboard</span></a>
+                                 @else
+
+                                 <a href="/add-to-cart" class="dropdown-item text-dark"><span
+                                       class="padding_10">Cart</span></a>
+                                 <a href="/user-profile" class="dropdown-item text-dark"><span
+                                       class="padding_10">Details</span></a>
+                                       
+                                 @endcan
+
+                                 <a class="dropdown-item text-dark" href="{{route('logout')}}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span
+                                       class="padding_10">Logout</span></a>
+                              </div>
+                           </div>
                         </li>
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                 style="display: none;">
-                                 @csrf
-                              </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                           @csrf
+                        </form>
                         <li>
+
                            @endauth
                            @guest
 
@@ -135,8 +151,7 @@ $categories = App\Models\Category::latest()->get();
                               <span class="padding_10">Login</span></a>
                         </li>
                         <li>
-                           <span class="">/</span>
-
+                           <span>/</span>
                         </li>
                         <li><a href="/register">
                               <i class="fa fa-user" aria-hidden="true"></i>
@@ -167,7 +182,8 @@ $categories = App\Models\Category::latest()->get();
    <!-- footer section start -->
    <div class="footer_section layout_padding">
       <div class="container">
-         <div class="footer_logo"><a href="index.html"><img style="width:100px" src="{{asset('home/images/logoMeh.png')}}"></a></div>
+         <div class="footer_logo"><a href="index.html"><img style="width:100px"
+                  src="{{asset('home/images/logoMeh.png')}}"></a></div>
          <div class="input_bt">
             <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
             <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
