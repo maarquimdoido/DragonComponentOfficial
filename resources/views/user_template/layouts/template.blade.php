@@ -154,7 +154,7 @@ $categories = App\Models\Category::latest()->get();
       <!-- header section end -->
 
    </div>
-   <!-- banner bg main end -->
+   test
 
    <!-- Commom part -->
 
