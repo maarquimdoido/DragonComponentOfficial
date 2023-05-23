@@ -17,6 +17,7 @@
                         <th class="text-center">Quantity</th>
                         <th class="text-center">Total Will Pay</th>
                         <th class="text-center">Status</th>
+                        <th>Details</th>
                     </tr>
                     @foreach($pending_orders as $order )
                         <tr>
@@ -39,9 +40,14 @@
                                 <td class="text-center">
                                         <input class="btn btn-success disabled" type="button" value="{{$order->status}}">
                                         <input type="submit" value="Cancelar"  class="btn text-white" style="background-color:#dc3545;">
-                                </td>
                             </form>
-                        </tr>
+                        </td>
+                        <td>
+                        <form action="{{route('aboutorder')}}">
+                            <input type="submit" value="See More"  class="btn btn-info text-white">
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </table>
             </div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use App\Models\ShippingInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -12,6 +14,16 @@ class OrderController extends Controller
     {
         $pending_orders = Order::where('status', 'pending')->latest()->get();
         return view('admin.pendingorder', compact('pending_orders'));
+    }
+
+    public function SeeMore(Request $request)
+    {
+        $id = $request->id;
+        $id2 = $request->userid;
+        DB::table('orders')
+        ->where('userid', $id2);
+        $pending_orders = Order::where('status', 'confirmed')->latest()->get();
+        return view('admin.aboutorder', compact('pending_orders'));
     }
 
     public function CompletedOrder(Request $request)

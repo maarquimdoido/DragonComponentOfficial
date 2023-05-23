@@ -6,6 +6,12 @@
         <div class="box_main">
             <form action="{{route('addshippingaddress')}}" method="POST">
                 @csrf
+
+                <div class="form-group">
+                <label for="street_info">Full Name</label>
+                <input type="text" class="form-control" name="email">
+                </div>
+
                 <div class="form-group">
                 <label for="phone_number">Phone Number</label>
                 <input type="text" class="form-control" name="phone_number">
