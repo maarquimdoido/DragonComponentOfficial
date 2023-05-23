@@ -26,6 +26,11 @@
                 <input type="text" class="form-control" name="street_info">
                 </div>
 
+                <div class="form-group">
+                <label for="street_info">Email</label>
+                <input type="text" class="form-control" name="email">
+                </div>
+
                 <input type="submit" value="Next" class="btn btn-danger">
             </form>
         </div>

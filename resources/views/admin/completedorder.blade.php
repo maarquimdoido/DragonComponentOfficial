@@ -23,6 +23,7 @@
                             <td>{{$order->userid}}</td>
                             <td>
                                 <ul>
+                                    <li>Email - {{$order->email}}</li>
                                     <li>Phone number - {{$order->shipping_phoneNumber}}</li>
                                     <li>City - {{$order->shipping_city}}</li>
                                     <li>Postal Code - {{$order->shipping_postalcode}}</li>

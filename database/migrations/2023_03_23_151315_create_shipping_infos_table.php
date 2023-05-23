@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('city_name');
             $table->string('postal_code');
             $table->string('street_info');
+            $table->string('email');
             $table->timestamps();
         });
     }

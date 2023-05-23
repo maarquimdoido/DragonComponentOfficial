@@ -13,6 +13,7 @@ class Order extends Model
         'shipping_phoneNumber',
         'shipping_city',
         'shipping_postalcode',
+        'email',
         'shipping_streetinfo',
         'product_name',
         'quantity',

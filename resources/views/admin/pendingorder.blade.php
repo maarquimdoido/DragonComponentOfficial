@@ -27,6 +27,7 @@ Pending Orders - Dragon Component
                                     <li>City - {{$order->shipping_city}}</li>
                                     <li>Postal Code - {{$order->shipping_postalcode}}</li>
                                     <li>Street Info - {{$order->shipping_streetinfo}}</li>
+                                    <li>Email - {{$order->email}}</li>
                                 </ul>
                             </td>
                             <form action="{{route('completedorder')}}" method="GET">

@@ -96,18 +96,19 @@ $categories = App\Models\Category::latest()->get();
                </div>
                @endauth
                <div class="main">
-
                   <!-- Another variation with a button -->
-                  <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Search this blog">
-                     <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button"
-                           style="background-color:#30302e; border-color:#30302e ">
-                           <i class="fa fa-search"></i>
-                        </button>
-                     </div>
-                  </div>
-               </div>
+                  <form>
+                      <div class="input-group">
+                         <input type="search" name="search" class="form-control" placeholder="Search" >
+                         <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit"
+                               style="background-color:#30302e; border-color:#30302e ">
+                               <i class="fa fa-search"></i>
+                            </button>
+                         </div>
+                      </div>
+                    </div>
+                  </form>
                <div class="header_box">
                   <div class="login_menu">
                      <ul>
@@ -129,7 +130,7 @@ $categories = App\Models\Category::latest()->get();
                                        class="padding_10">Cart</span></a>
                                  <a href="/user-profile" class="dropdown-item text-dark"><span
                                        class="padding_10">Details</span></a>
-                                       
+
                                  @endcan
 
                                  <a class="dropdown-item text-dark" href="{{route('logout')}}"

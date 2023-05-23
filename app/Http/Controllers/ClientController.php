@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
+
     public function CategoryPage($id)
     {
         $category = Category::findOrFail($id);
@@ -76,6 +77,7 @@ class ClientController extends Controller
             'city_name' => $request->city_name,
             'postal_code' => $request->postal_code,
             'street_info' => $request->street_info,
+            'email'=> $request->email,
         ]);
 
         return redirect()->route('checkout');
@@ -112,6 +114,7 @@ class ClientController extends Controller
                 'shipping_city'=> $shipping_address->city_name,
                 'shipping_streetinfo'=> $shipping_address->street_info,
                 'shipping_postalcode'=> $shipping_address->postal_code,
+                'email'=> $shipping_address->email,
                 'product_id'=> $item->product_id,
                 'quantity'=> $item->quantity,
                 'total_price'=> $item->price,
