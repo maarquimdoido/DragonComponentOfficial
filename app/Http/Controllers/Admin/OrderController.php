@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ShippingInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,17 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
+    public function AdminSearch(Request $request)
+    {
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            $allproducts = Product::where('id', 'LIKE', "%$search%")->orWhere('userid', 'LIKE', "%search%")->get();
+        }else{
+            $allproducts = Product::latest()->get();
+        }
+        return view('admin.canceledorder', compact('allproducts', 'search'));
+    }
+
     public function Index()
     {
         $pending_orders = Order::where('status', 'pending')->latest()->get();

@@ -8,8 +8,8 @@
                 @csrf
 
                 <div class="form-group">
-                <label for="street_info">Full Name</label>
-                <input type="text" class="form-control" name="email">
+                <label for="fullname">Full Name</label>
+                <input type="text" class="form-control" name="fullname">
                 </div>
 
                 <div class="form-group">

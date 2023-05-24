@@ -73,6 +73,7 @@ class ClientController extends Controller
     {
         ShippingInfo::insert([
             'user_id' =>Auth::id(),
+            'fullname'=>$request->fullname,
             'phone_number' => $request->phone_number,
             'city_name' => $request->city_name,
             'postal_code' => $request->postal_code,
@@ -110,6 +111,7 @@ class ClientController extends Controller
         {
             Order::insert([
                 'userid'=> $userid,
+                'fullname'=>$shipping_address->fullname,
                 'shipping_phoneNumber'=> $shipping_address->phone_number,
                 'shipping_city'=> $shipping_address->city_name,
                 'shipping_streetinfo'=> $shipping_address->street_info,
@@ -165,6 +167,17 @@ class ClientController extends Controller
         $canceled_orders = Order::where('userid', $userid)->where('status','canceled')->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
         return view('user_template.canceledorders', compact('canceled_orders'));
+    }
+
+    public function Search(Request $request)
+    {
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            $allproducts = Product::where('product_name', 'LIKE', "%$search%")->get();
+        }else{
+            $allproducts = Product::latest()->get();
+        }
+        return view('user_template.home', compact('allproducts', 'search'));
     }
 
 

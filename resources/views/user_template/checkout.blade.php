@@ -1,6 +1,6 @@
 @extends('user_template.layouts.template')
 @section('main-content')
-<h2>Final Checkout</h2>
+<h2 class="py-5">Final Checkout</h2>
 <div class="row">
     <div class="col-7">
         <div class="box_main">
@@ -8,6 +8,7 @@
             <p>City Name - {{ $shipping_address->city_name }}</p>
             <p>Street Address - {{ $shipping_address->street_info }}</p>
             <p>Postal Code - {{ $shipping_address->postal_code }}</p>
+            <p>Full name -  {{ $shipping_address->fullname }} </p>
             <p>Phone Number - {{ $shipping_address->phone_number }}</p>
             <p>Email - {{ $shipping_address->email }}</p>
         </div>
