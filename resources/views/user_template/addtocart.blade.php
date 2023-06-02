@@ -5,20 +5,20 @@
 
 @if (session()->has('message'))
 
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
+<div class="alert alert-success">
+    {{ session()->get('message') }}
+</div>
 
 @elseif(session() -> has('quantityOut'))
 
-    <div class="alert alert-warning">
-        {{ session()->get('quantityOut') }}
-    </div>
+<div class="alert alert-warning">
+    {{ session()->get('quantityOut') }}
+</div>
 
 @elseif(session() -> has('outOfStock'))
-    <div class="alert alert-warning">
-        {{ session()->get('outOfStock') }}
-    </div>
+<div class="alert alert-warning">
+    {{ session()->get('outOfStock') }}
+</div>
 @endif
 
 <div class="row">
@@ -45,6 +45,7 @@
                     @endphp
                     @foreach($cart_item as $item)
                     <tr>
+                        MEHMEHMEH {{$item->product_id}}
                         @php
                         $product_name = App\Models\Product::where('id', $item->product_id)->value('product_name');
                         $img = App\Models\Product::where('id', $item->product_id)->value('product_img');

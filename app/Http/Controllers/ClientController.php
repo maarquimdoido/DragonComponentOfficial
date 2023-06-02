@@ -38,6 +38,8 @@ class ClientController extends Controller
         return view('user_template.addtocart', compact('cart_item'));
     }
 
+    
+
     public function AddProductToCart(Request $request)
     {
         $product_price = $request->price;
@@ -56,16 +58,28 @@ class ClientController extends Controller
 
             if ($newAvaiibleQuantityValue >= 0) {
 
-                Cart::insert([
-                    'product_id' => $products,
-                    'user_id' => Auth::id(),
-                    'price' => $price,
-                    'quantity' => $quantity,
-                ]);
+                if($this->doesItExist($products)){
+                    
+                    $itemToAddArr = $this->doesItExist($products); //[0,1,2,3]
+                    $cartUpdateQuery = Cart::findOrFail($itemToAddArr[0]);
+                    $cartUpdateQuery->quantity = $itemToAddArr[1]+$quantity;
+                    $cartUpdateQuery->price =  $itemToAddArr[2]+$price;
+                    $cartUpdateQuery->save();
 
-                $recordMeh = Product::findOrFail($products);
-                $recordMeh->quantity = $newAvaiibleQuantityValue;
-                $recordMeh->save();
+                }else{
+
+                    Cart::insert([
+                        'product_id' => $products,
+                        'user_id' => Auth::id(),
+                        'price' => $price,
+                        'quantity' => $quantity,
+                    ]);
+
+                }
+
+                $productUpdateQuery = Product::findOrFail($products);
+                $productUpdateQuery->quantity = $newAvaiibleQuantityValue;
+                $productUpdateQuery->save();
 
                 return redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
             } elseif ($newAvaiibleQuantityValue < 0) {
@@ -73,6 +87,17 @@ class ClientController extends Controller
             }
         } else {
             return redirect()->route('addtocart')->with('outOfStock', 'Item out of stock');
+        }
+    }
+    public function doesItExist($productIdMeh)
+    {
+        $does = Cart::where('product_id', $productIdMeh)->first();
+
+        if ($does) {
+            $mehArr = [$does->id, $does->quantity, $does->price];
+            return $mehArr;
+        } else {
+           return false;
         }
     }
 
