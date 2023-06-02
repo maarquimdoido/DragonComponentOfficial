@@ -29,10 +29,10 @@
                             <div class="form-group">
                                 <input hidden="text"  value="{{$product->price}}" name="price" >
                                 <label for="quantity">How Many Pics ?</label>
-                                <input class="form-control" type="number"  min='1' max="{{ $product->quantity }}" placeholder="1" name="quantity">
+                                <input class="form-control" @if($product->quantity == 0) disabled=true @endif type="number"  min='1' max="{{ $product->quantity }}" name="quantity">
                             </div>
                         <br>
-                        <input class="btn btn-danger" type="submit" value="Add To Cart">
+                        <input class="btn btn-danger"  @if($product->quantity == 0) disabled=true value="Out of Stock" @else  value="Add To Cart" @endif type="submit" >
                     </form>
                 </div>
             </div>

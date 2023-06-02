@@ -28,7 +28,7 @@ class ClientController extends Controller
         $product = Product::findOrFail($id);
         $subcat_id = Product::where('id', $id)->value('product_subcategory_id');
         $related_products = Product::where('product_subcategory_id', $subcat_id)->latest()->get();
-        return view('user_template.product', compact('product', 'related_products' ));
+        return view('user_template.product', compact('product', 'related_products'));
     }
 
     public function AddToCart()
@@ -42,20 +42,38 @@ class ClientController extends Controller
     {
         $product_price = $request->price;
         $quantity = $request->quantity;
-        if($quantity == null)
-        {
+
+        if ($quantity == null) {
             $quantity = 1;
         }
-        $price = $quantity * $product_price  ;
-        $products = $request->product_id;
-        Cart::insert([
-                'product_id' => $products,
-                'user_id' =>Auth::id(),
-                'price' => $price,
-                'quantity' => $quantity,
-        ]);
 
-        return  redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
+        $price = $quantity * $product_price;
+        $products = $request->product_id;
+
+        $availible_quantity = Product::where('id', $products)->value('quantity');
+        $newAvaiibleQuantityValue = (int) $availible_quantity - (int) $quantity;
+        if (!$availible_quantity <= 0) {
+
+            if ($newAvaiibleQuantityValue >= 0) {
+
+                Cart::insert([
+                    'product_id' => $products,
+                    'user_id' => Auth::id(),
+                    'price' => $price,
+                    'quantity' => $quantity,
+                ]);
+
+                $recordMeh = Product::findOrFail($products);
+                $recordMeh->quantity = $newAvaiibleQuantityValue;
+                $recordMeh->save();
+
+                return redirect()->route('addtocart')->with('message', 'Your item added to cart successfully');
+            } elseif ($newAvaiibleQuantityValue < 0) {
+                return redirect()->route('addtocart')->with('quantityOut', 'We dont have enought items as you are looking for');
+            }
+        } else {
+            return redirect()->route('addtocart')->with('outOfStock', 'Item out of stock');
+        }
     }
 
     public function RemoveCartItem($id)
@@ -72,13 +90,13 @@ class ClientController extends Controller
     public function AddShippingAddress(Request $request)
     {
         ShippingInfo::insert([
-            'user_id' =>Auth::id(),
-            'fullname'=>$request->fullname,
+            'user_id' => Auth::id(),
+            'fullname' => $request->fullname,
             'phone_number' => $request->phone_number,
             'city_name' => $request->city_name,
             'postal_code' => $request->postal_code,
             'street_info' => $request->street_info,
-            'email'=> $request->email,
+            'email' => $request->email,
         ]);
 
         return redirect()->route('checkout');
@@ -107,20 +125,19 @@ class ClientController extends Controller
         $shipping_address = ShippingInfo::where('user_id', $userid)->first();
         $cart_item = Cart::where('user_id', $userid)->get();
 
-        foreach($cart_item as $item)
-        {
+        foreach ($cart_item as $item) {
             Order::insert([
-                'userid'=> $userid,
-                'fullname'=>$shipping_address->fullname,
-                'shipping_phoneNumber'=> $shipping_address->phone_number,
-                'shipping_city'=> $shipping_address->city_name,
-                'shipping_streetinfo'=> $shipping_address->street_info,
-                'shipping_postalcode'=> $shipping_address->postal_code,
-                'email'=> $shipping_address->email,
-                'product_id'=> $item->product_id,
-                'quantity'=> $item->quantity,
-                'total_price'=> $item->price,
-                'status'=>"pending",
+                'userid' => $userid,
+                'fullname' => $shipping_address->fullname,
+                'shipping_phoneNumber' => $shipping_address->phone_number,
+                'shipping_city' => $shipping_address->city_name,
+                'shipping_streetinfo' => $shipping_address->street_info,
+                'shipping_postalcode' => $shipping_address->postal_code,
+                'email' => $shipping_address->email,
+                'product_id' => $item->product_id,
+                'quantity' => $item->quantity,
+                'total_price' => $item->price,
+                'status' => "pending",
 
             ]);
 
@@ -145,7 +162,7 @@ class ClientController extends Controller
         // $status = $request->status;
         $id = $request->id;
         $userid = Auth::id();
-        $confirmed_orders = Order::where('userid', $userid)->where('status','confirmed')->latest()->get();
+        $confirmed_orders = Order::where('userid', $userid)->where('status', 'confirmed')->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
         return view('user_template.orders', compact('confirmed_orders'));
     }
@@ -155,7 +172,7 @@ class ClientController extends Controller
         // $status = $request->status;
         $id = $request->id;
         $userid = Auth::id();
-        $pending_orders = Order::where('userid', $userid)->where('status','pending')->latest()->get();
+        $pending_orders = Order::where('userid', $userid)->where('status', 'pending')->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'pending')->get();
         return view('user_template.pendingorders', compact('pending_orders'));
     }
@@ -164,7 +181,7 @@ class ClientController extends Controller
         // $status = $request->status;
         $id = $request->id;
         $userid = Auth::id();
-        $canceled_orders = Order::where('userid', $userid)->where('status','canceled')->latest()->get();
+        $canceled_orders = Order::where('userid', $userid)->where('status', 'canceled')->latest()->get();
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
         return view('user_template.canceledorders', compact('canceled_orders'));
     }
@@ -172,9 +189,9 @@ class ClientController extends Controller
     public function Search(Request $request)
     {
         $search = $request['search'] ?? "";
-        if($search != ""){
+        if ($search != "") {
             $allproducts = Product::where('product_name', 'LIKE', "%$search%")->get();
-        }else{
+        } else {
             $allproducts = Product::latest()->get();
         }
         return view('user_template.home', compact('allproducts', 'search'));

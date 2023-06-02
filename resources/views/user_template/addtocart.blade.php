@@ -2,11 +2,25 @@
 @section('main-content')
 <br><br><br>
 <h2>Add Cart Page</h2>
+
 @if (session()->has('message'))
-<div class="alert alert-success">
-    {{ session()->get('message') }}
-</div>
+
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+
+@elseif(session() -> has('quantityOut'))
+
+    <div class="alert alert-warning">
+        {{ session()->get('quantityOut') }}
+    </div>
+
+@elseif(session() -> has('outOfStock'))
+    <div class="alert alert-warning">
+        {{ session()->get('outOfStock') }}
+    </div>
 @endif
+
 <div class="row">
     <div class="col-12">
         <div class="box_main">
