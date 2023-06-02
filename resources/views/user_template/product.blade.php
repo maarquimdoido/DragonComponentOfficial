@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <input hidden="text"  value="{{$product->price}}" name="price" >
                                 <label for="quantity">How Many Pics ?</label>
-                                <input class="form-control" type="number"  min='1' placeholder="1" name="quantity">
+                                <input class="form-control" type="number"  min='1' max="{{ $product->quantity }}" placeholder="1" name="quantity">
                             </div>
                         <br>
                         <input class="btn btn-danger" type="submit" value="Add To Cart">
