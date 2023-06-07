@@ -9,13 +9,19 @@
                 <h2 class="text-center my-4">Canceled Orders</h2>
             </div>
             <div class="card-body">
+                @if($pending_orders->isEmpty())
+                <div class="text-center">
+                    <h4>Empty</h4>
+                </div>
+                
+                @else
                 <table class="table">
                     <tr>
                         <th class="text-center">User Id</th>
                         <th>Shipping Information</th>
-                        <th class="text-center">Product Id</th>
+                        <th class="text-center">Product</th>
                         <th class="text-center">Quantity</th>
-                        <th class="text-center">Total Will Pay</th>
+                        <th class="text-center">Total Price</th>
                         <th class="text-center">Status</th>
                     </tr>
                     @foreach($pending_orders as $order )
@@ -30,7 +36,7 @@
                                     <li>Email - {{$order->email}}</li>
                                 </ul>
                             </td>
-                            <td class="text-center">{{$order->product_id}}</td>
+                            <td class="text-center">{{$order->product_name}}</td>
                             <td class="text-center">{{$order->quantity}}</td>
                             <td class="text-center">{{$order->total_price}} €</td>
                             <td class="text-center"><label>
@@ -39,6 +45,7 @@
                         </tr>
                     @endforeach
                 </table>
+                @endif
             </div>
         </div>
     </div>
