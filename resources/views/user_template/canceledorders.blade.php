@@ -4,7 +4,7 @@
     <table class="table">
         <tr>
             <th>User ID</th>
-            <th>Product ID</th>
+            <th>Product</th>
             <th>Price</th>
             <th>Status</th>
         </tr>
@@ -14,7 +14,7 @@
                 {{ $order->userid }}
             </td>
             <td>
-                {{ $order->product_id }}
+                {{ $order->product_name }}
             </td>
             <td>
             {{ $order->total_price }}€
