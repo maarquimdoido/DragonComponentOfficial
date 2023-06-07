@@ -151,9 +151,11 @@ class ClientController extends Controller
         $cart_item = Cart::where('user_id', $userid)->get();
 
         foreach ($cart_item as $item) {
+            $product_name = Product::where('id', $item->product_id)->value('product_name');;
             Order::insert([
                 'userid' => $userid,
                 'fullname' => $shipping_address->fullname,
+                'product_name' => $product_name,
                 'shipping_phoneNumber' => $shipping_address->phone_number,
                 'shipping_city' => $shipping_address->city_name,
                 'shipping_streetinfo' => $shipping_address->street_info,
