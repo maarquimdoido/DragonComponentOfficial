@@ -6,7 +6,11 @@
     {{ session()->get('message') }}
 </div>
 @endif
-
+@if($pending_orders->isEmpty())
+    <div class="text-center">
+        Empty
+    </div>
+    @else
 <table class="table">
     <tr>
         <th>User ID</th>
@@ -35,4 +39,5 @@
     </tr>
     @endforeach
 </table>
+@endif
 @endsection
