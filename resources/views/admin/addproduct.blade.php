@@ -38,14 +38,14 @@ Add Product - Dragon Component
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Short Description</label>
                           <div class="col-sm-10">
-                                <textarea class="form-control" name="product_short_des" id="product_short_des" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" style="resize:none" name="product_short_des" id="product_short_des" cols="10" rows="2"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Product Long Description</label>
                           <div class="col-sm-10">
-                                <textarea class="form-control" name="product_long_des" id="product_long_des" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="product_long_des" id="product_long_des" cols="30" rows="5" maxlength="200"></textarea>
                             </div>
                         </div>
 
