@@ -8,6 +8,6 @@
                 <li>Criada em : {{ Auth::user()->created_at }}</li>
                 </ul>
         </table><br>
-        <form action="{{route('profile.edit')}}" method="GET"><input type="submit" class="btn btn-danger mr-3" value="Editar informações">
-        <form action="/verify-email" method="GET"><input type="submit" class="btn btn-danger" value="Validar Email"></form></form>
+        <form action="{{route('profile.edit')}}" method="GET"><input type="submit" class="btn btn-danger mr-3" value="Edit Informations">
+        <form action="/verify-email" method="GET"><input type="submit" class="btn btn-danger" value="Verify Email"></form></form>
 @endsection

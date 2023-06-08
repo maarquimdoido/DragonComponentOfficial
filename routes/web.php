@@ -34,12 +34,6 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/credits', 'Credits')->name('credits');
 });
 
-Route::get('SendEmail', function(){
-    Mail::to(Auth::user()->email)->send(new SendEmail);
-
-    return "Mail sent";
-});
-
 Route::controller(ClientController::class)->group(function(){
     Route::get('/category/{id}/{slug} ', 'CategoryPage')->name('category');
     Route::get('/product-details/{id}/{slug}', 'SingleProduct')->name('singleproduct');
@@ -128,10 +122,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
 require __DIR__.'/auth.php';
 
-Route::get('auth/github', [GithubController::class, 'redirect'])->name('github.login');
-Route::get('auth/github/callback', [GithubController::class, 'callback']);
-
-// Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@Index')->name('home')->middleware('verified');
 
