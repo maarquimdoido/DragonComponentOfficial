@@ -23,6 +23,7 @@ Users Verifieds - Dragon Component
                     <th class="text-center">Name</th>
                     <th class="text-center">Email</th>
                     <th class="text-center">Created</th>
+                    <th class="text-center">action</th>
                 </tr>
                 @foreach($users as $crrUser )
                 <tr>
