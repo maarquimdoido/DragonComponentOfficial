@@ -15,7 +15,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-l
+
     <title>@yield('page_title')</title>
 
     <meta name="description" content="" />
@@ -163,6 +163,24 @@ l
                       <div data-i18n="Analytics">Canceled Orders</div>
                   </a>
               </li>
+
+              <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">User</span>
+            </li>
+
+              <li class="menu-item ">
+                  <a href="{{route('usersVerified')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Verified Users</div>
+                  </a>
+              </li>
+
+            <li class="menu-item ">
+              <a href="{{route('usersUnverified')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Unverified Users</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->
