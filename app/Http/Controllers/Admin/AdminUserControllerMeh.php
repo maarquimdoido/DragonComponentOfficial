@@ -21,4 +21,9 @@ class AdminUserControllerMeh extends Controller
         $users = User::all();
         return view('admin.users', compact('users'));
     }
+
+    public function userData($uid){
+        $user = User::find($uid);
+        return view('admin.userData', compact('user'));
+    }
 }

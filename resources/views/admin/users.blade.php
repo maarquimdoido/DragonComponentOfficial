@@ -24,12 +24,12 @@ Users Verifieds - Dragon Component
                     <th class="text-center">Email</th>
                     <th class="text-center">Created</th>
                     <th class="text-center">Email Verified</th>
-                    <th class="text-center">action</th>
+                    <th class="text-center">acton</th>
 
                 </tr>
                 @foreach($users as $crrUser )
                 <tr>
-                    <form action="{{route('completedorder')}}" method="GET">
+
                         @csrf
                         <input type="hidden" value="{{$crrUser->id}}" name="id">
                         <td class="text-center">
@@ -40,9 +40,10 @@ Users Verifieds - Dragon Component
                         <td class="text-center">{{$crrUser->created_at}}</td>
                         <td class="text-center">@if($crrUser->email_verified_at != null)True @else False @endif </td>
                         <td>
-                            <input class="btn btn-success" type="submit" value="See more(not working yet)">
+                            <a href="{{route('userdata', ['uid' => $crrUser->id])}}">
+                                <input class="btn btn-success" type="button" value="See more">
+                            </a>
                         </td>
-                    </form>
                 </tr>
                 @endforeach
             </table>
