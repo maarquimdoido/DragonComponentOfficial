@@ -16,4 +16,9 @@ class AdminUserControllerMeh extends Controller
         $users = User::whereNull('email_verified_at') -> get();
         return view('admin.usersUnverified', compact('users'));
     }
+
+    public function users(){
+        $users = User::all();
+        return view('admin.users', compact('users'));
+    }
 }

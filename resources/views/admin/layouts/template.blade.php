@@ -168,6 +168,13 @@
               <span class="menu-header-text">User</span>
             </li>
 
+            <li class="menu-item ">
+                  <a href="{{route('users')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">All Users</div>
+                  </a>
+              </li>
+
               <li class="menu-item ">
                   <a href="{{route('usersVerified')}}" class="menu-link">
                       <i class="menu-icon tf-icons bx bx-home-circle"></i>
