@@ -9,5 +9,4 @@
                 </ul>
         </table><br>
         <form action="{{route('profile.edit')}}" method="GET"><input type="submit" class="btn btn-danger mr-3" value="Edit Informations">
-        <form action="/verify-email" method="GET"><input type="submit" class="btn btn-danger" value="Verify Email"></form></form>
 @endsection
