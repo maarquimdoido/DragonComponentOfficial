@@ -37,7 +37,9 @@ Users Verifieds - Dragon Component
                         <td class="text-center">{{$crrUser->email}}</td>
                         <td class="text-center">{{$crrUser->created_at}}</td>
                         <td>
-                            <input class="btn btn-success" type="submit" value="See more(not working yet)">
+                        <a href="{{route('userdata', ['uid' => $crrUser->id])}}">
+                                <input class="btn btn-success" type="button" value="See more">
+                            </a>
                         </td>
                     </form>
                 </tr>
