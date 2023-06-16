@@ -7,7 +7,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="text-center">
-    <a href={{ route('google.login') }}><img style="width:50% ; margin-left: 25%;" src="{{asset('home/images/loginGOOGLE.png')}}"></a>
+    <a href=""><img style="width:50% ; margin-left: 25%;" src="{{asset('home/images/loginGOOGLE.png')}}"></a>
     </div><br>
 
         <!-- Email Address -->
