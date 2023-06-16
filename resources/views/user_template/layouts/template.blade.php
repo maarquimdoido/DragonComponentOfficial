@@ -191,12 +191,11 @@ $categories = App\Models\Category::latest()->get();
          </div>
          <div class="footer_menu">
             <ul>
-               <li><a href="#">Best Sellers</a></li>
                <li><a href="#">Credits</a></li>
                <li><a href="#">Customer Service</a></li>
             </ul>
          </div>
-         <div class="location_main">Email Contact : <a href="#">mv_bcardoso@outlook.com</a></div>
+         <div class="location_main">Email Contact : <a href="#">dragoncomponent2023@gmail.com</a></div>
       </div>
    </div>
    <!-- footer section end -->
