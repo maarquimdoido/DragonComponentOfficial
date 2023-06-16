@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -24,6 +25,7 @@ class AdminUserControllerMeh extends Controller
 
     public function userData($uid){
         $user = User::find($uid);
-        return view('admin.userData', compact('user'));
+        $userOrders = Order::where('userId',$uid)->get();
+        return view('admin.userData', compact('user','userOrders'));
     }
 }
