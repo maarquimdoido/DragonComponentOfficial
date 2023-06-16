@@ -2,13 +2,13 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="text-center">
-
-    </div>
 
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
+        <div class="text-center">
+    <a href={{ route('google.login') }}><img style="width:50% ; margin-left: 25%;" src="{{asset('home/images/loginGOOGLE.png')}}"></a>
+    </div><br>
 
         <!-- Email Address -->
         <div>

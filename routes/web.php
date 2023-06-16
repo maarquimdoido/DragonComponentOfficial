@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\GithubController;
 use App\Mail\SendEmail;
