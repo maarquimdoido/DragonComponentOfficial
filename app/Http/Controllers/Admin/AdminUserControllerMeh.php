@@ -53,7 +53,6 @@ class AdminUserControllerMeh extends Controller
     }
 
 
-
     public function userData($uid){
         $user = User::find($uid);
         $userOrders = Order::where('userId', $uid)->get();
