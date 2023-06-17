@@ -10,9 +10,17 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function Index()
+    public function Index(Request $request)
     {
-        $products = Product::latest()->get();
+        $products =Product::latest();
+        $search = $request['search'];
+
+        ($search !== "") ? $products = Product::where('id','LIKE',"%$search%")
+                                    ->orWhere('product_name','LIKE',"%$search%")
+                                    ->orWhere('price','LIKE',"%$search%")
+                        : $products = Product::latest();
+
+        $products = $products->get();
         return view('admin.allproducts', compact('products'));
     }
 
@@ -65,7 +73,7 @@ class ProductController extends Controller
         Category::where('id', $category_id)->increment('product_count',1);
         Subcategory::where('id', $subcategory_id)->increment('product_count',1);
 
-        
+
         return redirect()->route('allproducts')->with('message', 'Product Added Successfully!');
     }
 
@@ -104,7 +112,7 @@ class ProductController extends Controller
     public function UpdateProduct(Request $request)
     {
         $productid = $request->id;
-        
+
         $request->validate([
             'product_name' => 'required|unique:products',
             'price' => 'required',
@@ -114,7 +122,7 @@ class ProductController extends Controller
         ]);
 
         Product::findOrFail($productid)->update([
-           
+
             'product_name' => $request->product_name,
             'product_short_des' => $request->product_short_des,
             'product_long_des' => $request->product_long_des,
@@ -124,7 +132,7 @@ class ProductController extends Controller
         ]);
 
         return redirect()->route('allproducts')->with('message', 'Product Information Updated Successfully!');
-        
+
     }
 
     public function DeleteProduct($id)
