@@ -3,10 +3,11 @@
 Users Verifieds - Dragon Component
 @endsection
 @section('content')
+@parent
 <div class="container my-5">
     <div class="card ">
         <div class="card-title">
-            <h2 class="text-center my-4">Users</h2>
+            <h2 class="text-center my-4">All Users</h2>
         </div>
         <div class="card-body">
 
