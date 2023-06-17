@@ -52,13 +52,9 @@ class AdminUserControllerMeh extends Controller
         return view('admin.users', compact('users'));
     }
 
-<<<<<<< HEAD
 
-    public function userData($uid){
-=======
     public function userData($uid)
     {
->>>>>>> 58ee87a651d44b6dc8b549986ddcc899c5175e72
         $user = User::find($uid);
         $userOrders = Order::where('userId', $uid)->get();
         return view('admin.userData', compact('user', 'userOrders'));
