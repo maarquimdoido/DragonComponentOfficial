@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('shipping_infos', function (Blueprint $table) {
             $table->id();
-            $table->integer('fullname');
+            $table->string('fullname');
             $table->integer('user_id');
             $table->string('phone_number');
             $table->string('city_name');

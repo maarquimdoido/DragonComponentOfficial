@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 
 class AdminUserControllerMeh extends Controller
 {
@@ -22,6 +23,7 @@ class AdminUserControllerMeh extends Controller
         $users = User::all();
         return view('admin.users', compact('users'));
     }
+
 
     public function userData($uid){
         $user = User::find($uid);
