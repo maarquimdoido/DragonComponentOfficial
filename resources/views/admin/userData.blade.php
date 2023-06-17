@@ -58,8 +58,4 @@ User Details- Dragon Component
 
 </div>
 
-Dados do usuario: {{ $user }}
-<br/>
-<br/>
-Dados de pedidos: {{ $userOrders }}
 @endsection
