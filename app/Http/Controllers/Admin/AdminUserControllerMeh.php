@@ -10,24 +10,58 @@ use App\Models\Role;
 
 class AdminUserControllerMeh extends Controller
 {
-    public function verified(){
-        $users = User::whereNotNull('email_verified_at') -> get();
+    public function verified(Request $request)
+    {
+        $search = $request['search'] ?? "";
+        if ($search != "") {
+
+            $users = User::where(function ($query) use ($search) {
+                $query->where('name', 'LIKE', "%$search%")
+                    ->orWhere('email', 'LIKE', "%$search%")
+                    ->whereNotNull('email_verified_at');
+            })->get();
+        } else {
+            $users = User::whereNotNull('email_verified_at')->get();
+        }
         return view('admin.usersVerified', compact('users'));
     }
-    public function unverified(){
-        $users = User::whereNull('email_verified_at') -> get();
-        return view('admin.usersUnverified', compact('users'));
+    public function unverified(Request $request)
+    {
+        $search = $request['search'] ?? "";
+        if ($search != "") {
+
+            $users = User::where(function ($query) use ($search) {
+                $query->where('name', 'LIKE', "%$search%")
+                    ->orWhere('email', 'LIKE', "%$search%")
+                    ->whereNull('email_verified_at');
+            })->get();
+        } else {
+            $users = User::whereNull('email_verified_at')->get();
+        }
+        return view('admin.usersVerified', compact('users'));
     }
 
-    public function users(){
-        $users = User::all();
+    public function users(Request $request)
+    {
+        $search = $request['search'] ?? "";
+        if ($search != "") {
+            $users = User::where('name', 'LIKE', "%$search%")->orWhere('email', 'LIKE', "%$search%")->get();
+        } else {
+            $users = User::all();
+        }
         return view('admin.users', compact('users'));
     }
 
+<<<<<<< HEAD
 
     public function userData($uid){
+=======
+    public function userData($uid)
+    {
+>>>>>>> 58ee87a651d44b6dc8b549986ddcc899c5175e72
         $user = User::find($uid);
-        $userOrders = Order::where('userId',$uid)->get();
-        return view('admin.userData', compact('user','userOrders'));
+        $userOrders = Order::where('userId', $uid)->get();
+        return view('admin.userData', compact('user', 'userOrders'));
     }
+
 }
