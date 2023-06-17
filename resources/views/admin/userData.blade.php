@@ -3,6 +3,9 @@
 User Details- Dragon Component
 @endsection
 @section('content')
+<div class="container">
+
+
 <div class="container my-5">
         <div class="card ">
             <div class="card-title">
@@ -16,7 +19,7 @@ User Details- Dragon Component
                         <th class="text-center">Email</th>
                         <th class="text-center">Last Login</th>
                     </tr>
-       
+
                         <tr>
                             <td class="text-center">{{$user->id}}</td>
                             <td class="text-center">{{$user->name}}</td>
@@ -52,6 +55,9 @@ User Details- Dragon Component
             </div>
         </div>
     </div>
+
+</div>
+
 Dados do usuario: {{ $user }}
 <br/>
 <br/>
