@@ -56,7 +56,7 @@ Route::middleware(['auth', 'role:user'])->middleware('verified')->group(function
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/canceled-orders', 'CanceledOrders')->name('canceledorders');
-        Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
+        Route::get('/todays-deal', 'TodaysDeal')->name( 'todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
         Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');
     });
@@ -128,6 +128,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 });
+    	
 
 
 require __DIR__ . '/auth.php';
