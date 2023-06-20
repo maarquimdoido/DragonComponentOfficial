@@ -15,6 +15,7 @@ $categories = App\Models\Category::latest()->get();
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
    <title>Dragon Component</title>
+   <link rel="icon" type="image/x-icon" href="    {{asset('home/images/logoMeh.png')}}" />
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -122,7 +123,7 @@ $categories = App\Models\Category::latest()->get();
                                  id="dropdownMenuButton">{{ Auth::user()->name }}</button>
                               <div class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuButton">
                                  @can('admin')
-                                 <a href="/admin/dashboard" class="dropdown-item text-dark"><span
+                                 <a href="/admin/dashboard" target="_blank" class="dropdown-item text-dark"><span
                                        class="padding_10">Dashboard</span></a>
                                  @else
 

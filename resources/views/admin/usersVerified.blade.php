@@ -21,7 +21,6 @@ Users Verifieds - Dragon Component
                 <tr>
                     <th class="text-center">id</th>
                     <th class="text-center">Name</th>
-                    <th class="text-center">Email</th>
                     <th class="text-center">Created</th>
                     <th class="text-center">action</th>
                 </tr>
@@ -34,11 +33,10 @@ Users Verifieds - Dragon Component
                             <img width="70" height="70" title="{{$crrUser->id}}" alt="user icon with id= {{$crrUser->id}}" src="{{asset('dashboard/assets/img/user_img.png')}}">
                         </td>
                         <td class="text-center">{{$crrUser->name}}</td>
-                        <td class="text-center">{{$crrUser->email}}</td>
                         <td class="text-center">{{$crrUser->created_at}}</td>
                         <td>
                         <a href="{{route('userdata', ['uid' => $crrUser->id])}}">
-                                <input class="btn btn-success" type="button" value="See more">
+                                <input style="margin-left: 30%;" class="btn btn-success" type="button" value="See more">
                             </a>
                         </td>
                     </form>
