@@ -34,12 +34,6 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/credits', 'Credits')->name('credits');
 });
 
-Route::get('SendEmail', function(){
-    Mail::to(Auth::user()->email)->send(new SendEmail);
-
-    return "Mail sent";
-});
-
 Route::controller(ClientController::class)->group(function(){
     Route::get('/category/{id}/{slug} ', 'CategoryPage')->name('category');
     Route::get('/product-details/{id}/{slug}', 'SingleProduct')->name('singleproduct');
