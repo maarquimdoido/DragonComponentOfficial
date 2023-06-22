@@ -103,6 +103,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::controller(AdminUserControllerMeh::class)->group(function () {
         Route::get('/admin/usersVerified', 'Verified')->name('usersVerified');
+        
         Route::get('/admin/usersUnverified', 'Unverified')->name('usersUnverified');
         Route::get('/admin/users', 'Users')->name('users');
         Route::get('/admin/users/{uid}', 'userData')->name('userdata');
