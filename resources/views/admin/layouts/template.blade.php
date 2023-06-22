@@ -15,13 +15,13 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-l
+
     <title>@yield('page_title')</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="    {{asset('dashboard/assets/img/favicon/favicon.ico')}}" />
+    <link rel="icon" type="image/x-icon" href="    {{asset('home/images/logoMeh.png')}}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -163,6 +163,31 @@ l
                       <div data-i18n="Analytics">Canceled Orders</div>
                   </a>
               </li>
+
+              <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">User</span>
+            </li>
+
+            <li class="menu-item ">
+                  <a href="{{route('users')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">All Users</div>
+                  </a>
+              </li>
+
+              <li class="menu-item ">
+                  <a href="{{route('usersVerified')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Verified Users</div>
+                  </a>
+              </li>
+
+            <li class="menu-item ">
+              <a href="{{route('usersUnverified')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Unverified Users</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->
@@ -182,18 +207,26 @@ l
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
+            <!-- Search -->
+            @section('searchForm')
+            <form>
+                <div class="navbar-nav align-items-center">
+                    <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
-                    type="text"
+                    type="search"
+                    id="search"
+                    name="search"
                     class="form-control border-0 shadow-none"
                     placeholder="Search..."
                     aria-label="Search..."
-                  />
+                    id="search"
+                    />
+
                 </div>
-              </div>
+            </div>
+        </form>
+        @show
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">

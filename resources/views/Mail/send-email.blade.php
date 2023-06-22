@@ -3,7 +3,7 @@
 
 Please click the button below to verify your email address.
 
-<x-mail::button :url="''">
+<x-mail::button :url="'http://localhost:8000/'">
 Button Text
 </x-mail::button>
 

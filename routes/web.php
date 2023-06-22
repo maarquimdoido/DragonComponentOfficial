@@ -5,11 +5,13 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\adminUserControllerMeh;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\GithubController;
 use App\Mail\SendEmail;
@@ -29,19 +31,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::controller(HomeController::class)->group(function(){
+Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'Index')->name('home');
     Route::get('/credits', 'Credits')->name('credits');
 });
 
-Route::controller(ClientController::class)->group(function(){
+Route::controller(ClientController::class)->group(function () {
     Route::get('/category/{id}/{slug} ', 'CategoryPage')->name('category');
     Route::get('/product-details/{id}/{slug}', 'SingleProduct')->name('singleproduct');
     Route::get('/new-release', 'NewRelease')->name('newrelease');
 });
 
-Route::middleware(['auth', 'role:user'  ])->middleware('verified')->group(function(){
-    Route::controller(ClientController::class)->group(function(){
+Route::middleware(['auth', 'role:user'])->middleware('verified')->group(function () {
+    Route::controller(ClientController::class)->group(function () {
         Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
         Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
         Route::get('/shipping-address', 'GetShippingAddress')->name('shippingaddress');
@@ -54,7 +56,7 @@ Route::middleware(['auth', 'role:user'  ])->middleware('verified')->group(functi
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
         Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/canceled-orders', 'CanceledOrders')->name('canceledorders');
-        Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
+        Route::get('/todays-deal', 'TodaysDeal')->name( 'todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
         Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');
     });
@@ -75,12 +77,12 @@ Route::post('/logout', [ProfileController::class, 'destroy'])
     ->middleware('auth')
 ;
 
-Route::middleware(['auth', 'role:admin'])->group(function(){
-    Route::controller(DashboardController::class)->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
         Route::get('/admin/dashboard', 'Index')->name('admindashboard');
     });
 
-    Route::controller(CategoryController::class)->group(function(){
+    Route::controller(CategoryController::class)->group(function () {
         Route::get('/admin/all-category', 'Index')->name('allcategory');
         Route::get('/admin/add-category', 'AddCategory')->name('addcategory');
         Route::post('/admin/store-category', 'StoreCategory')->name('storecategory');
@@ -89,7 +91,8 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/admin/delete-category{id}', 'DeleteCategory')->name('deletecategory');
     });
 
-    Route::controller(SubCategoryController::class)->group(function(){
+    Route::controller(SubCategoryController::class)->group(function () {
+
         Route::get('/admin/all-subcategory', 'Index')->name('allsubcategory');
         Route::get('/admin/add-subcategory', 'AddSubCategory')->name('addsubcategory');
         Route::post('/admin/store-subcategory', 'StoreSubCategory')->name('storesubcategory');
@@ -98,7 +101,15 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/admin/update-subcategory', 'UpdateSubCat')->name('updatesubcat');
     });
 
-    Route::controller(ProductController::class)->group(function(){
+    Route::controller(AdminUserControllerMeh::class)->group(function () {
+        Route::get('/admin/usersVerified', 'Verified')->name('usersVerified');
+        
+        Route::get('/admin/usersUnverified', 'Unverified')->name('usersUnverified');
+        Route::get('/admin/users', 'Users')->name('users');
+        Route::get('/admin/users/{uid}', 'userData')->name('userdata');
+    });
+
+    Route::controller(ProductController::class)->group(function () {
         Route::get('/admin/all-products', 'Index')->name('allproducts');
         Route::get('/admin/add-product', 'AddProduct')->name('addproduct');
         Route::post('/admin/store-product', 'StoreProduct')->name('storeproduct');
@@ -109,7 +120,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/admin/delete-product/{id}', 'DeleteProduct')->name('deleteproduct');
     });
 
-    Route::controller(OrderController::class)->group(function(){
+    Route::controller(OrderController::class)->group(function () {
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
         Route::get('/admin/completed-order', 'CompletedOrder')->name('completedorder');
         Route::get('/admin/canceled-order', 'CanceledOrder')->name('canceledorder');
@@ -118,18 +129,14 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
 
 });
+    	
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('auth/github', [GithubController::class, 'redirect'])->name('github.login');
-Route::get('auth/github/callback', [GithubController::class, 'callback']);
-
-// Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@Index')->name('home')->middleware('verified');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth','verified'])->name('dashboard');
-
+})->middleware(['auth', 'verified'])->name('dashboard');
