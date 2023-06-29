@@ -43,7 +43,10 @@ Completed Orders - Dragon Component
 
                     </form>
                     <td>
-                        <form action="{{route('aboutorder')}}">
+                        <form action='{{route("aboutorder")}}'>
+                            <input type="text" hidden value="{{$order->userid}}" name="userid" id="userid">
+                            <input type="text" hidden value="{{$order->id}}" name="productid" id="productid">
+
                             <input type="submit" value="See More" class="btn btn-info text-white">
                         </form>
                     </td>

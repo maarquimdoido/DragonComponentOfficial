@@ -14,11 +14,12 @@ class OrderController extends Controller
 {
     public function SeeMore(Request $request)
     {
-        $id = $request->id;
+        $id = $request->productid;
         $id2 = $request->userid;
         DB::table('orders')
-            ->where('userid', $id2);
-        $pending_orders = Order::where('status', 'confirmed')->latest()->get();
+        ->where('userid', $id2);
+        $pending_orders = Order::where('status', 'confirmed')->where('userid',"$id2")->where('id', "$id")->latest()->get();
+
         return view('admin.aboutorder', compact('pending_orders'));
     }
 
