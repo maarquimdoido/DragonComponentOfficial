@@ -59,6 +59,8 @@ Route::middleware(['auth', 'role:user'])->middleware('verified')->group(function
         Route::get('/todays-deal', 'TodaysDeal')->name( 'todaysdeal');
         Route::get('/custom-service', 'CustomerService')->name('customerservice');
         Route::get('/remove-cart-item{id}', 'RemoveCartItem')->name('removeitem');
+        Route::get('/policy', 'ShowPolicy')->name('policy');
+        Route::get('/terms', 'ShowTerms')->name('terms');
     });
 });
 

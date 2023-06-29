@@ -240,4 +240,13 @@ class ClientController extends Controller
     {
         return view('user_template.customerservice');
     }
+
+    public function ShowPolicy()
+    {
+        return view('user_template.policy');
+    }
+    public function ShowTerms()
+    {
+        return view('user_template.terms');
+    }
 }

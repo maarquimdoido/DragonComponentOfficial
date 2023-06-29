@@ -60,6 +60,8 @@ $categories = App\Models\Category::latest()->get();
                         <li><a href="/">Home</a></li>
                         <li><a href="{{ route('credits')}}">Credits</a></li>
                         <li><a href="{{ route('customerservice')}}">Customer Service</a></li>
+                        <li><a href="{{ route('policy')}}">Policy</a></li>
+                        <li><a href="{{ route('terms')}}">Terms</a></li>
                      </ul>
                   </div>
                </div>
