@@ -18,13 +18,44 @@ User Details- Dragon Component
                         <th class="text-center">Name</th>
                         <th class="text-center">Email</th>
                         <th class="text-center">Last Login</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Action</th>
                     </tr>
+
+                                @php
+                                    $uid = $user->id;
+                                    $row = DB::table('role_user')->where('user_id',"{$uid}")->first();
+                                    $crrState = $row->user_type;
+                                    $crrRoleId = $row->role_id;
+                                @endphp
 
                         <tr>
                             <td class="text-center">{{$user->id}}</td>
                             <td class="text-center">{{$user->name}}</td>
                             <td class="text-center">{{$user->email}}</td>
                             <td class="text-center">{{$user->updated_at}}</td>
+                            <td class="text-center">{{$crrState}}</td>
+                            
+                            @if($crrRoleId == 2)
+
+                            <td class="text-center">
+                                <form method="POST" action="{{ route('admin.userToAdmin', ['id' => $user->id]) }}">
+                                    @csrf
+                                    <input type="submit" class="btn btn-success" value="Turn admin">
+                                </form>
+                            </td>
+ 
+                            @else
+                            
+                            <td class="text-center">
+                                <form method="POST" action="{{ route('admin.adminToUser', ['id' => $user->id]) }}">
+                                    @csrf
+                                    <input type="submit" class="btn btn-warning" value="Turn user">
+                                </form>
+                            </td>
+
+                            @endif
+
                         </tr>
                 </table>
             </div>
