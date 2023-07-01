@@ -102,7 +102,7 @@ $categories = App\Models\Category::latest()->get();
                   <!-- Another variation with a button -->
                   <form>
                       <div class="input-group">
-                         <input type="search" name="search" class="form-control" placeholder="Search" >
+                         <input " type="search" name="search" class="form-control" placeholder="Search" >
                          <div class="input-group-append">
                             <button class="btn btn-secondary" type="submit"
                                style="background-color:#30302e; border-color:#30302e ">
