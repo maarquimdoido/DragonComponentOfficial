@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Role;
+use Illuminate\Http\Request;
+use App\Models\RoleUser;
 
 class AdminUserControllerMeh extends Controller
 {
@@ -52,11 +52,33 @@ class AdminUserControllerMeh extends Controller
         return view('admin.users', compact('users'));
     }
 
-
     public function userData($uid){
         $user = User::find($uid);
         $userOrders = Order::where('userId', $uid)->get();
         return view('admin.userData', compact('user', 'userOrders'));
+    }
+
+    public function userToAdmin($uid){
+        
+        RoleUser::where('user_id', $uid)->update([
+            'role_id' => '1',
+            'user_type' => 'admin'
+        ]); 
+
+        return redirect()->to(route('userdata', ['uid' => $uid]));
+
+    }
+
+    public function adminToUser($uid){
+        // $user = User::find($uid);
+        
+        RoleUser::where('user_id', $uid)->update([
+            'role_id' => '2',
+            'user_type' => 'user'
+        ]); 
+
+        return redirect()->to(route('userdata', ['uid' => $uid]));
+
     }
 
 }

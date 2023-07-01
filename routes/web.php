@@ -110,6 +110,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/usersUnverified', 'Unverified')->name('usersUnverified');
         Route::get('/admin/users', 'Users')->name('users');
         Route::get('/admin/users/{uid}', 'userData')->name('userdata');
+        Route::post('/admin/userToAdmin/{id}', [AdminUserControllerMeh::class, 'userToAdmin'])->name('admin.userToAdmin');
+        Route::post('/admin/adminToUser/{id}', [AdminUserControllerMeh::class, 'adminToUser'])->name('admin.adminToUser');
     });
 
     Route::controller(ProductController::class)->group(function () {
