@@ -150,6 +150,7 @@ class ClientController extends Controller
         $shipping_address = ShippingInfo::where('user_id', $userid)->first();
         $cart_item = Cart::where('user_id', $userid)->get();
 
+
         foreach ($cart_item as $item) {
             $product_name = Product::where('id', $item->product_id)->value('product_name');;
             Order::insert([

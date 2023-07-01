@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\adminUserControllerMeh;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
@@ -130,6 +131,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
+});
+
+Route::controller (PaypalController::class)->group (function(){ 
+Route::get('/checkout', 'Index')->name('payment index');
+Route :: post('/request-payment', 'Request Payment')->name ('requestpayment'); 
+Route::get('/payment-success', 'PaymentSuccess')->name('payment success');
+Route::get('/payment-cancel','PaymentCancel')->name('paymentCancel');
 });
     	
 
