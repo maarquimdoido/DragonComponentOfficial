@@ -45,7 +45,7 @@
                     @endphp
                     @foreach($cart_item as $item)
                     <tr>
-                        MEHMEHMEH {{$item->product_id}}
+                        {{$item->product_id}}
                         @php
                         $product_name = App\Models\Product::where('id', $item->product_id)->value('product_name');
                         $img = App\Models\Product::where('id', $item->product_id)->value('product_img');

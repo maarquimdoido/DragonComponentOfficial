@@ -135,13 +135,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 });
 
-Route::controller (PaypalController::class)->group (function(){ 
-Route::get('/checkout', 'Index')->name('payment index');
-Route :: post('/request-payment', 'Request Payment')->name ('requestpayment'); 
-Route::get('/payment-success', 'PaymentSuccess')->name('payment success');
-Route::get('/payment-cancel','PaymentCancel')->name('paymentCancel');
-});
-    	
 
 
 require __DIR__ . '/auth.php';

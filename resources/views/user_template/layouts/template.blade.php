@@ -196,6 +196,8 @@ $categories = App\Models\Category::latest()->get();
             <ul>
                <li><a href="#">Credits</a></li>
                <li><a href="#">Customer Service</a></li>
+               <li><a href="{{ route('policy')}}">Policy</a></li>
+               <li><a href="{{ route('terms')}}">Terms</a></li>
             </ul>
          </div>
          <div class="location_main">Email Contact : <a href="#">dragoncomponent2023@gmail.com</a></div>

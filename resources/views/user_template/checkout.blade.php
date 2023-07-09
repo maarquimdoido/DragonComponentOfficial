@@ -43,7 +43,7 @@
                     <tr>
                         <td></td>
                         <td class="fw-bold">Total</td>
-                        <td class="text-center">{{$total}}€</td>
+                        <td class="text-center" name="amount">{{$total}}€</td>
                     </tr>
                 </table>
             </div>
@@ -58,6 +58,16 @@
 
     <form action="{{route('placeorder')}}" method="POST">
         @csrf
+        @if(Session::has ('error'))
+            <div class="div alert alert-danger">
+            {{Session::get('error ') }}
+            </div>
+        @endif
+        @if(Session::has ('success'))
+            <div class="div alert alert-success">
+            {{Session::get('success') }}
+            </div>
+        @endif
         <input type="submit" value="Place Order" class="btn btn-btn-danger ">
     </form>
 </div>
