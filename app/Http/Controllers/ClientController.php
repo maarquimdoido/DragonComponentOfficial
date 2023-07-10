@@ -140,6 +140,8 @@ class ClientController extends Controller
 
     public function createPaymentSession() //chama e cria o stripe
     {
+
+        $totalAmount = (request('totalamount'))*100;
         // Set your Stripe secret key
         Stripe::setApiKey(config('services.stripe.secret'));
 
@@ -153,7 +155,7 @@ class ClientController extends Controller
                         'product_data' => [
                             'name' => 'Dragoncomponent payment',
                         ],
-                        'unit_amount' => 500,
+                        'unit_amount' => $totalAmount,
                     ],
                     'quantity' => 1,
                 ],

@@ -2,13 +2,18 @@
 @section('profilecontent')
 <h2>Pending Orders</h2>
 @if(request()->has('success'))
-
+@php
+session(['canRunPlaceOrder' => false]);
+@endphp
 <div class="alert alert-success">
     Your order has been placed Successfully
 </div>
 
 @elseif(request()->has('warning'))
 
+@php
+session(['canRunPlaceOrder' => false]);
+@endphp
 <div class="alert alert-warning">
     Oops... Something went wrong
 </div>

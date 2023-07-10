@@ -317,13 +317,11 @@ Dashboard - Dragon Component
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations {{Auth::user()->name}}! 🎉</h5>
+                          <h5 class="card-title text-primary">Hello {{Auth::user()->name}}! 🎉</h5>
                           <p class="mb-4">
-                            You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                            your profile.
+                            Check all our <span class="fw-bold">features</span> beside.
                           </p>
 
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
