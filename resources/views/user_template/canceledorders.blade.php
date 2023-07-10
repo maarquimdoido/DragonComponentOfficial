@@ -25,7 +25,7 @@
             {{ $order->total_price }}€
         </td>
         <td>
-            <input type="button" class="btn btn-danger disabled" value="{{ $order->status }}"></input>
+            <input type="button" class="btn btn-danger disabled" value="{{ $order->status }}"/>
         </td>
     </tr>
     @endforeach

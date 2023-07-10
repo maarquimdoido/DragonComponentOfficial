@@ -12,17 +12,21 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Stripe\Exception\ApiErrorException;
+use Stripe\Stripe;
+
+
+require_once '../vendor/autoload.php';
 
 class ClientController extends Controller
 {
-
     public function CategoryPage($id)
     {
         $category = Category::findOrFail($id);
         $products = Product::where('product_category_id', $id)->latest()->get();
         return view('user_template.category', compact('category', 'products'));
     }
-
     public function SingleProduct($id)
     {
         $product = Product::findOrFail($id);
@@ -30,16 +34,12 @@ class ClientController extends Controller
         $related_products = Product::where('product_subcategory_id', $subcat_id)->latest()->get();
         return view('user_template.product', compact('product', 'related_products'));
     }
-
     public function AddToCart()
     {
         $userid = Auth::id();
         $cart_item = Cart::where('user_id', $userid)->get();
         return view('user_template.addtocart', compact('cart_item'));
     }
-
-    
-
     public function AddProductToCart(Request $request)
     {
         $product_price = $request->price;
@@ -58,15 +58,15 @@ class ClientController extends Controller
 
             if ($newAvaiibleQuantityValue >= 0) {
 
-                if($this->doesItExist($products)){
-                    
+                if ($this->doesItExist($products)) {
+
                     $itemToAddArr = $this->doesItExist($products); //[0,1,2,3]
                     $cartUpdateQuery = Cart::findOrFail($itemToAddArr[0]);
-                    $cartUpdateQuery->quantity = $itemToAddArr[1]+$quantity;
-                    $cartUpdateQuery->price =  $itemToAddArr[2]+$price;
+                    $cartUpdateQuery->quantity = $itemToAddArr[1] + $quantity;
+                    $cartUpdateQuery->price = $itemToAddArr[2] + $price;
                     $cartUpdateQuery->save();
 
-                }else{
+                } else {
 
                     Cart::insert([
                         'product_id' => $products,
@@ -97,21 +97,18 @@ class ClientController extends Controller
             $mehArr = [$does->id, $does->quantity, $does->price];
             return $mehArr;
         } else {
-           return false;
+            return false;
         }
     }
-
     public function RemoveCartItem($id)
     {
         Cart::findOrFail($id)->delete();
         return redirect()->route('addtocart')->with('message', 'Your item was removed successfully');
     }
-
     public function GetShippingAddress()
     {
         return view('user_template.shippingaddress');
     }
-
     public function AddShippingAddress(Request $request)
     {
         ShippingInfo::insert([
@@ -126,8 +123,6 @@ class ClientController extends Controller
 
         return redirect()->route('checkout');
     }
-
-
     public function Checkout(Request $request)
     {
         $userid = Auth::id();
@@ -135,7 +130,6 @@ class ClientController extends Controller
         $shipping_address = ShippingInfo::where('user_id', $userid)->first();
         return view('user_template.checkout', compact('cart_item', 'shipping_address'));
     }
-
     public function CheckoutCancel(Request $request)
     {
         $id = $request->id;
@@ -144,46 +138,91 @@ class ClientController extends Controller
         return redirect()->route('addtocart')->with('message', 'Your Order Has Been Deleted Successfully');
     }
 
-    public function PlaceOrder()
+    public function createPaymentSession() //chama e cria o stripe
     {
-        $userid = Auth::id();
-        $shipping_address = ShippingInfo::where('user_id', $userid)->first();
-        $cart_item = Cart::where('user_id', $userid)->get();
+        // Set your Stripe secret key
+        Stripe::setApiKey(config('services.stripe.secret'));
 
-        foreach ($cart_item as $item) {
-            $product_name = Product::where('id', $item->product_id)->value('product_name');;
-            Order::insert([
-                'userid' => $userid,
-                'fullname' => $shipping_address->fullname,
-                'product_name' => $product_name,
-                'shipping_phoneNumber' => $shipping_address->phone_number,
-                'shipping_city' => $shipping_address->city_name,
-                'shipping_streetinfo' => $shipping_address->street_info,
-                'shipping_postalcode' => $shipping_address->postal_code,
-                'email' => $shipping_address->email,
-                'product_id' => $item->product_id,
-                'quantity' => $item->quantity,
-                'total_price' => $item->price,
-                'status' => "pending",
+        // Create a new payment session with the necessary details
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'currency' => 'eur',
+                        'product_data' => [
+                            'name' => 'Dragoncomponent payment',
+                        ],
+                        'unit_amount' => 500,
+                    ],
+                    'quantity' => 1,
+                ],
 
-            ]);
+            ],
+            'mode' => 'payment',
+            'success_url' => route('stripe-callback'),
+            'cancel_url' => route('pendingorders') . '?warning',
+        ]);
 
-            $id = $item->id;
-            Cart::findOrFail($id)->delete();
-        }
+        session(['canRunPlaceOrder' => true]);
+        return redirect($session->url);
 
-        ShippingInfo::where('user_id', $userid)->first()->delete();
-
-        return redirect()->route('pendingorders')->with('message', 'Your Order Has Been Placed Successfully');
     }
 
+    public function placeOrder() //callbackl
+    {
+        $isAbleTORun = session('canRunPlaceOrder');
 
+        if ($isAbleTORun) {
+
+            try {
+
+                $userid = Auth::id();
+                $shipping_address = ShippingInfo::where('user_id', $userid)->first();
+                $cart_item = Cart::where('user_id', $userid)->get();
+
+                foreach ($cart_item as $item) {
+                    $product_name = Product::where('id', $item->product_id)->value('product_name');
+                    ;
+                    Order::insert([
+                        'userid' => $userid,
+                        'fullname' => $shipping_address->fullname,
+                        'product_name' => $product_name,
+                        'shipping_phoneNumber' => $shipping_address->phone_number,
+                        'shipping_city' => $shipping_address->city_name,
+                        'shipping_streetinfo' => $shipping_address->street_info,
+                        'shipping_postalcode' => $shipping_address->postal_code,
+                        'email' => $shipping_address->email,
+                        'product_id' => $item->product_id,
+                        'quantity' => $item->quantity,
+                        'total_price' => $item->price,
+                        'status' => "pending",
+
+                    ]);
+
+                    $id = $item->id;
+                    Cart::findOrFail($id)->delete();
+                }
+
+                ShippingInfo::where('user_id', $userid)->first()->delete();
+
+                return redirect()
+                            ->route(('pendingorders') . '?success');
+                            // ->header('Cache-Control', 'no-store, no-cache, must-revalidate');
+
+            } catch (\Exception $e) {
+
+                return redirect()->route('pendingorders') . '?warning';
+            }
+        } else {
+            return redirect()->route('pendingorders') . '?warning';
+        }
+    }
 
     public function UserProfile(Request $request)
     {
         return view('user_template.userprofile');
     }
-
     public function Orders(Request $request)
     {
         // $status = $request->status;
@@ -193,7 +232,6 @@ class ClientController extends Controller
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
         return view('user_template.orders', compact('confirmed_orders'));
     }
-
     public function PendingOrders(Request $request)
     {
         // $status = $request->status;
@@ -212,7 +250,6 @@ class ClientController extends Controller
         // $orders = DB::table('orders')->where('status', '=', 'canceled')->get();
         return view('user_template.canceledorders', compact('canceled_orders'));
     }
-
     public function Search(Request $request)
     {
         $search = $request['search'] ?? "";
@@ -223,24 +260,18 @@ class ClientController extends Controller
         }
         return view('user_template.home', compact('allproducts', 'search'));
     }
-
-
-
     public function NewRelease()
     {
         return view('user_template.newrelease');
     }
-
     public function TodaysDeal()
     {
         return view('user_template.todaysdeal');
     }
-
     public function CustomerService()
     {
         return view('user_template.customerservice');
     }
-
     public function ShowPolicy()
     {
         return view('user_template.policy');

@@ -54,6 +54,8 @@ Route::middleware(['auth', 'role:user'])->middleware('verified')->group(function
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
         Route::get('/user-profile/confirmed-order', 'ConfirmedOrder')->name('confirmedorders');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
+        Route::post('/create-payment-session', 'createPaymentSession')->name('create-payment-session');
+        Route::get('/stripe-callback', 'placeOrder')->name('stripe-callback');
         Route::get('/user-profile/orders', 'Orders')->name('orders');
         Route::get('/user-profile/canceled-orders', 'CanceledOrders')->name('canceledorders');
         Route::get('/todays-deal', 'TodaysDeal')->name( 'todaysdeal');
