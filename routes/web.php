@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\adminUserControllerMeh;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
@@ -135,7 +136,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 });
-    	
+
 
 
 require __DIR__ . '/auth.php';

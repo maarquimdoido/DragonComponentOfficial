@@ -45,7 +45,7 @@
                     <tr>
                         <td></td>
                         <td class="fw-bold">Total</td>
-                        <td class="text-center">{{$total}}€</td>
+                        <td class="text-center" name="amount">{{$total}}€</td>
                     </tr>
                 </table>
             </div>
@@ -63,6 +63,18 @@
 
         <input type="hidden" name="totalamount" value="{{$total}}" id="totalamount">
         <input type="submit" value="Place Order" class="btn btn-btn-danger" id="fakeSubmitBtn">
+        
+        @if(Session::has ('error'))
+            <div class="div alert alert-danger">
+            {{Session::get('error ') }}
+            </div>
+        @endif
+        @if(Session::has ('success'))
+            <div class="div alert alert-success">
+            {{Session::get('success') }}
+            </div>
+        @endif
+        <input type="submit" value="Place Order" class="btn btn-btn-danger ">
     </form>
 </div>
 
