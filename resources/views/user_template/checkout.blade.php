@@ -74,7 +74,6 @@
             {{Session::get('success') }}
             </div>
         @endif
-        <input type="submit" value="Place Order" class="btn btn-btn-danger ">
     </form>
 </div>
 

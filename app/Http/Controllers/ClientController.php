@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Stripe\Exception\ApiErrorException;
 use Stripe\Stripe;
+use Symfony\Component\HttpFoundation\Response;
 
 
 require_once '../vendor/autoload.php';
@@ -208,9 +209,8 @@ class ClientController extends Controller
 
                 ShippingInfo::where('user_id', $userid)->first()->delete();
 
-                return redirect()
-                            ->route(('pendingorders') . '?success');
-                            // ->header('Cache-Control', 'no-store, no-cache, must-revalidate');
+                return Response::route(('pendingorders') . '?success')->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+
 
             } catch (\Exception $e) {
 
