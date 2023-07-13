@@ -200,7 +200,7 @@ $categories = App\Models\Category::latest()->get();
             </ul>
          </div>
          <div class="location_main">Email Contact : <a href="#">dragoncomponent2023@gmail.com</a></div>
-         <p>If you have any questions or issues about your order don't hesitate to contact us on our email</p>
+         <p class="location_main">If you have any questions or issues about your order don't hesitate to contact us on our email</p>
       </div>
    </div>
    <!-- footer section end -->
