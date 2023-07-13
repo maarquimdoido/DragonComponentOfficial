@@ -69,7 +69,7 @@ $lucroPorcentagem = 100-30; //porcentagem baseado em quanto gastamos e em quanto
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
               <div class="app-brand demo">
-                <a href="/" class="app-brand-link">
+                <a href="/admin/dashboard" class="app-brand-link">
 
                   <span class="app-brand-text demo menu-text fw-bolder ms-2">Admin Painel</span>
                 </a>
