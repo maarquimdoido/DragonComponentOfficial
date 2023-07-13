@@ -559,8 +559,8 @@ $lucroPorcentagem = 100-30; //porcentagem baseado em quanto gastamos e em quanto
                     </button>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
                       <a class="dropdown-item" href="{{route('completedorder')}}">Confirmed orders</a>
-                      <a class="dropdown-item" href="{{route('canceledorder')}}">canceled Order</a>
-                      <a class="dropdown-item" href="{{route('pendingorder')}}">pending Order</a>
+                      <a class="dropdown-item" href="{{route('canceledorder')}}">Canceled Order</a>
+                      <a class="dropdown-item" href="{{route('pendingorder')}}">Pending Order</a>
                     </div>
                   </div>
                 </div>
