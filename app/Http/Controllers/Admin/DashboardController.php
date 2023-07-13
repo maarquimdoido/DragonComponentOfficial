@@ -18,9 +18,6 @@ class DashboardController extends Controller
             $categories = Category::all();
             $subcategories = Subcategory::all();
 
-            
-
-
             $lucro = $this->calcularLucro();
             $pagamentos = $this->pagamentosEmEuro(); //total de euros de pagamento
             $compras = $this->todosOrders(); //total de pedidos

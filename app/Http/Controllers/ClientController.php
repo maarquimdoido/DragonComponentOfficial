@@ -209,7 +209,7 @@ class ClientController extends Controller
 
                 ShippingInfo::where('user_id', $userid)->first()->delete();
 
-                return Response::route(('pendingorders') . '?success')->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+                return redirect()->route('pendingorders'.'?success');
 
 
             } catch (\Exception $e) {
