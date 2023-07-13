@@ -530,9 +530,6 @@ $lucroPorcentagem = 100-30; //porcentagem baseado em quanto gastamos e em quanto
                           <h6 class="mb-0"> {{ $categorie->category_name }} </h6>
                           <small class="text-muted"> {{ $categorie->category_name }} </small>
                         </div>
-                        <div class="user-progress">
-                          <small class="fw-semibold">a fkn value omg</small>
-                        </div>
                       </div>
                     </li>
                     @endforeach
